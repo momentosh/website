@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Lightbulb,
   Lock,
@@ -11,15 +12,161 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import {
-  ExpandableCard,
-  ExpandableCardBody,
-  ExpandableCardContent,
-  ExpandableCardDescription,
-  ExpandableCardExpandContainer,
-  ExpandableCardImage,
-  ExpandableCardTitle,
-} from "@/components/ui/expandable-card";
+
+// Testimonials Carousel Component
+function TestimonialsCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Itamar Rocha Filho",
+      role: "Mestrando em Havard",
+      image: "/itamar.jpeg",
+      testimonial:
+        "Ter a oportunidade de aprender com pessoas mais experientes e ser mentorado por ex-alunos excelentes profissionais de outras universidades foi fundamental para meu crescimento profissional. As mentorias me ajudaram a entender melhor o mercado de trabalho e a traçar um caminho claro para alcançar meus objetivos de carreira.",
+    },
+    {
+      name: "João Pedra Vasconcelos",
+      role: "PhD student @ University of Toronto",
+      image: "/jpvt.jpeg",
+      testimonial:
+        "A partir das mentorias, consegui primeiramente aprender quais são meus objetivos de longo prazo e aprender a traçar planos para atingi-los. O apoio e a orientação que recebi foram essenciais para navegar pelas complexidades da carreira em tecnologia e me ajudaram a tomar decisões mais conscientes sobre meu futuro profissional.",
+    },
+    {
+      name: "Lara di Cavalcanti Pontes",
+      role: "PhD Student in Operations Research @ MIT",
+      image: "/lara.png",
+      testimonial:
+        "Conversar com gente que me inspira se mostrou a estratégia mais transformadora para o meu planejamento de carreira. Às vezes, essas pessoas oferecem um passo a passo prático, outras vezes compartilham suas experiências e desafios. Independente da forma, sempre saio dessas conversas com mais clareza sobre onde quero chegar e como fazer para alcançar meus objetivos.",
+    },
+    {
+      name: "Rômulo Henri",
+      role: "Tech Fellow Estudar ’25",
+      image: "/romulo.jpeg",
+      testimonial:
+        "Estar entre pessoas boas é estar em um ambiente de crescimento. Sempre gratificante ter contato com ex-alunos experientes e que compartilham do sentimento de comunidade, são valiosas opiniões, insights e vivências as quais podem ajudar em muitos dos dilemas que vivemos na graduação.",
+    },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  return (
+    <div className="relative mt-16">
+      {/* Carousel Container */}
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="w-full shrink-0 px-4 md:px-8">
+              <div className="bg-white border-2 border-primary rounded-3xl p-8 md:p-12 mx-auto max-w-5xl">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  {/* Image */}
+                  <div className="relative w-full md:w-80 h-96 shrink-0 overflow-hidden rounded-2xl">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className={`object-cover object-center ${
+                        testimonial.name === "Itamar Rocha Filho"
+                          ? "scale-125"
+                          : ""
+                      }`}
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-primary font-semibold text-lg">
+                      {testimonial.role}
+                    </p>
+                    <p className="text-foreground leading-relaxed">
+                      {testimonial.testimonial}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-sm hover:bg-primary text-primary hover:text-white rounded-full p-3 shadow-xl hover:shadow-2xl transition-all z-10"
+        style={{
+          boxShadow:
+            "0 10px 25px -5px rgba(124, 98, 172, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2)",
+        }}
+        aria-label="Previous testimonial"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            fillRule="evenodd"
+            d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-sm hover:bg-primary text-primary hover:text-white rounded-full p-3 shadow-xl hover:shadow-2xl transition-all z-10"
+        style={{
+          boxShadow:
+            "0 10px 25px -5px rgba(124, 98, 172, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2)",
+        }}
+        aria-label="Next testimonial"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            fillRule="evenodd"
+            d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+
+      {/* Indicators */}
+      <div className="flex justify-center gap-2 mt-8">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentSlide
+                ? "bg-primary w-8"
+                : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // FAQ Item Component
 function FAQItem({
@@ -74,12 +221,22 @@ function FAQItem({
           )}
           {hasButton && buttonType === "double" && (
             <div className="flex gap-4 flex-wrap">
-              <button className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-hover transition">
+              <a
+                href="https://lnkd.in/dnp9K_2y"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-hover transition inline-block"
+              >
                 {buttonText}
-              </button>
-              <button className="px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/10 transition">
+              </a>
+              <a
+                href="https://lnkd.in/dXD-vnuu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/10 transition inline-block"
+              >
                 {buttonText2}
-              </button>
+              </a>
             </div>
           )}
         </div>
@@ -159,7 +316,10 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20 bg-white backdrop-blur-md rounded-full my-4 px-6 border border-white/20">
-            <div className="flex items-center gap-3">
+            <a
+              href="#"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            >
               <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
                 <Image
                   src="/logo-momento.png"
@@ -172,27 +332,27 @@ export default function Home() {
               <span className="font-bold text-lg text-primary hidden sm:inline">
                 momento.sh
               </span>
-            </div>
+            </a>
 
             <div className="hidden md:flex gap-8 text-primary font-bold">
-              <a
-                href="#sobre"
+              <Link
+                href="/saiba-mais"
                 className="hover:scale-107 transition-transform duration-200"
               >
                 Sobre
-              </a>
+              </Link>
               <a
                 href="#depoimentos"
                 className="hover:scale-107 transition-transform duration-200"
               >
                 Depoimentos
               </a>
-              <a
+              {/* <a
                 href="#mentors"
                 className="hover:scale-107 transition-transform duration-200"
               >
                 Mentores
-              </a>
+              </a> */}
               <a
                 href="#faq"
                 className="hover:scale-107 transition-transform duration-200"
@@ -207,9 +367,12 @@ export default function Home() {
               </a>
             </div>
 
-            <button className="px-6 py-2 bg-accent text-accent-foreground rounded-full font-semibold hover:scale-107 transition text-sm">
+            <a
+              href="#mentors"
+              className="px-6 py-2 bg-accent text-accent-foreground rounded-full font-semibold hover:scale-107 transition text-sm"
+            >
               Participe
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -235,12 +398,18 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-primary rounded-full font-bold hover:shadow-2xl transition">
+              <a
+                href="#mentors"
+                className="px-8 py-3 bg-white text-primary rounded-full font-bold hover:shadow-2xl transition text-center"
+              >
                 PARTICIPE
-              </button>
-              <button className="px-8 py-3 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition">
+              </a>
+              <Link
+                href="/saiba-mais"
+                className="px-8 py-3 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition text-center"
+              >
                 SAIBA MAIS
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -326,9 +495,14 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <button className="w-full px-6 py-3 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition">
+              <a
+                href="https://lnkd.in/dnp9K_2y"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full px-6 py-3 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition text-center"
+              >
                 SEJA MENTORADO
-              </button>
+              </a>
             </div>
 
             {/* Mentors Card */}
@@ -345,9 +519,14 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <button className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold hover:bg-primary-hover transition">
+              <a
+                href="https://lnkd.in/dXD-vnuu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold hover:bg-primary-hover transition text-center"
+              >
                 SEJA MENTOR
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -363,159 +542,7 @@ export default function Home() {
             Qual o impacto da mentoria na vida das pessoas?
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
-            {/* Testimonial Card 1 - Itamar */}
-            <ExpandableCard>
-              <ExpandableCardBody className="border border-gray-200 hover:border-primary transition-colors">
-                <div className="relative h-80 w-full overflow-hidden bg-gray-50">
-                  <ExpandableCardImage
-                    src="/itamar.png"
-                    alt="Itamar Rocha Filho"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <ExpandableCardTitle className="mt-4">
-                  Itamar Rocha Filho
-                </ExpandableCardTitle>
-                <ExpandableCardDescription>
-                  Engenheiro de Software na deco
-                </ExpandableCardDescription>
-              </ExpandableCardBody>
-
-              <ExpandableCardExpandContainer className="max-w-4xl">
-                <div className="flex flex-col md:flex-row gap-0">
-                  <div className="relative w-full md:w-60 h-96 shrink-0 overflow-hidden">
-                    <ExpandableCardImage
-                      src="/itamar.png"
-                      alt="Itamar Rocha Filho"
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="flex-1 p-8">
-                    <ExpandableCardTitle className="!px-0 !mt-0">
-                      Itamar Rocha Filho
-                    </ExpandableCardTitle>
-                    <ExpandableCardDescription className="mb-4 !px-0">
-                      Engenheiro de Software na deco | Anteriormente na Google e
-                      Meta
-                    </ExpandableCardDescription>
-                    <ExpandableCardContent className="!p-0">
-                      <p className="text-foreground leading-relaxed">
-                        Ter a oportunidade de aprender com pessoas mais
-                        experientes e ser mentorado por ex-alunos excelentes
-                        profissionais de outras universidades foi fundamental
-                        para meu crescimento profissional. As mentorias me
-                        ajudaram a entender melhor o mercado de trabalho e a
-                        traçar um caminho claro para alcançar meus objetivos de
-                        carreira.
-                      </p>
-                    </ExpandableCardContent>
-                  </div>
-                </div>
-              </ExpandableCardExpandContainer>
-            </ExpandableCard>
-
-            {/* Testimonial Card 2 - João Pedra */}
-            <ExpandableCard>
-              <ExpandableCardBody className="border border-gray-200 hover:border-primary transition-colors">
-                <div className="relative h-80 w-full overflow-hidden bg-gray-50">
-                  <ExpandableCardImage
-                    src="/jpvt.png"
-                    alt="João Pedra Vasconcelos"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <ExpandableCardTitle className="mt-4">
-                  João Pedra Vasconcelos
-                </ExpandableCardTitle>
-                <ExpandableCardDescription>
-                  Engenheiro de Software na Microsoft
-                </ExpandableCardDescription>
-              </ExpandableCardBody>
-
-              <ExpandableCardExpandContainer className="max-w-4xl">
-                <div className="flex flex-col md:flex-row gap-0">
-                  <div className="relative w-full md:w-60 h-96 shrink-0 overflow-hidden">
-                    <ExpandableCardImage
-                      src="/jpvt.png"
-                      alt="João Pedra Vasconcelos"
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="flex-1 p-8">
-                    <ExpandableCardTitle className="!px-0 !mt-0">
-                      João Pedra Vasconcelos
-                    </ExpandableCardTitle>
-                    <ExpandableCardDescription className="mb-4 !px-0">
-                      Engenheiro de Software na Microsoft | Anteriormente no MIT
-                      e Amazon
-                    </ExpandableCardDescription>
-                    <ExpandableCardContent className="!p-0">
-                      <p className="text-foreground leading-relaxed">
-                        A partir das mentorias, consegui primeiramente aprender
-                        quais são meus objetivos de longo prazo e aprender a
-                        traçar planos para atingi-los. O apoio e a orientação
-                        que recebi foram essenciais para navegar pelas
-                        complexidades da carreira em tecnologia e me ajudaram a
-                        tomar decisões mais conscientes sobre meu futuro
-                        profissional.
-                      </p>
-                    </ExpandableCardContent>
-                  </div>
-                </div>
-              </ExpandableCardExpandContainer>
-            </ExpandableCard>
-
-            {/* Testimonial Card 3 - Lara */}
-            <ExpandableCard>
-              <ExpandableCardBody className="border border-gray-200 hover:border-primary transition-colors">
-                <div className="relative h-80 w-full overflow-hidden bg-gray-50">
-                  <ExpandableCardImage
-                    src="/lara.png"
-                    alt="Lara di Cavalcanti Pontes"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <ExpandableCardTitle className="mt-4">
-                  Lara di Cavalcanti Pontes
-                </ExpandableCardTitle>
-                <ExpandableCardDescription>
-                  Researcher @ LOG UFPB
-                </ExpandableCardDescription>
-              </ExpandableCardBody>
-
-              <ExpandableCardExpandContainer className="max-w-4xl">
-                <div className="flex flex-col md:flex-row gap-0">
-                  <div className="relative w-full md:w-60 h-96 shrink-0 overflow-hidden">
-                    <ExpandableCardImage
-                      src="/lara.png"
-                      alt="Lara di Cavalcanti Pontes"
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="flex-1 p-8">
-                    <ExpandableCardTitle className="!px-0 !mt-0">
-                      Lara di Cavalcanti Pontes
-                    </ExpandableCardTitle>
-                    <ExpandableCardDescription className="mb-4 !px-0">
-                      Researcher @ LOG UFPB
-                    </ExpandableCardDescription>
-                    <ExpandableCardContent className="!p-0">
-                      <p className="text-foreground leading-relaxed">
-                        Conversar com gente que me inspira se mostrou a
-                        estratégia mais transformadora para o meu planejamento
-                        de carreira. Às vezes, essas pessoas oferecem um passo a
-                        passo prático, outras vezes compartilham suas
-                        experiências e desafios. Independente da forma, sempre
-                        saio dessas conversas com mais clareza sobre onde quero
-                        chegar e como fazer para alcançar meus objetivos.
-                      </p>
-                    </ExpandableCardContent>
-                  </div>
-                </div>
-              </ExpandableCardExpandContainer>
-            </ExpandableCard>
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
@@ -590,36 +617,74 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-primary font-bold mb-4 text-sm tracking-wider">
-              QUEM SOMOS
+              O QUE JÁ FIZEMOS
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Eventos passados
             </h2>
+            <p className="text-foreground text-lg max-w-3xl mx-auto">
+              Um gostinho dos eventos passados que tivemos!
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Placeholder for event cards - você pode adicionar conteúdo depois */}
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-3xl p-8 text-center min-h-[300px] flex items-center justify-center">
-              <p className="text-muted-foreground">
-                Evento 1 - Em breve com mais detalhes
-              </p>
-            </div>
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-3xl p-8 text-center min-h-[300px] flex items-center justify-center">
-              <p className="text-muted-foreground">
-                Evento 2 - Em breve com mais detalhes
-              </p>
-            </div>
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-3xl p-8 text-center min-h-[300px] flex items-center justify-center">
-              <p className="text-muted-foreground">
-                Evento 3 - Em breve com mais detalhes
-              </p>
+          {/* Live Coding do Momento */}
+          <div className="bg-accent rounded-3xl p-8 md:p-12 overflow-hidden">
+            <div className="flex flex-col lg:flex-row gap-8 items-center">
+              {/* Thumbnail do YouTube */}
+              <div className="w-full lg:w-1/2 shrink-0">
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-white shadow-lg">
+                  <Image
+                    src="https://img.youtube.com/vi/jSHUps0M6xw/maxresdefault.jpg"
+                    alt="Live coding do Momento"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Conteúdo */}
+              <div className="flex-1 space-y-6">
+                <div className="inline-block px-4 py-2 bg-white/20 rounded-full border-2 border-black">
+                  <span className="text-black font-bold">16/10</span>
+                </div>
+
+                <h3 className="text-3xl md:text-4xl font-bold text-black">
+                  Live coding do Momento
+                </h3>
+
+                <p className="text-black text-lg leading-relaxed">
+                  Utilizando APIs de IA para criação de software em empresas
+                  paraibanas
+                </p>
+
+                <a
+                  href="https://www.youtube.com/watch?v=jSHUps0M6xw&t=1s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform shadow-lg"
+                >
+                  Acesse
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mentores Section */}
-      <section id="mentors" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* <section id="mentors" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-primary font-bold mb-4 text-sm tracking-wider">
@@ -635,7 +700,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Mentor Card 1 - Fanny Vieira */}
+            {/* Mentor Card 1 - Fanny Vieira *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -657,7 +722,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mentor Card 2 - Daniel Bastos */}
+            {/* Mentor Card 2 - Daniel Bastos *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -679,7 +744,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mentor Card 3 - Marcos Candeia */}
+            {/* Mentor Card 3 - Marcos Candeia *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -701,7 +766,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mentor Card 4 - Mateus Antonio */}
+            {/* Mentor Card 4 - Mateus Antonio *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -721,7 +786,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mentor Card 5 - Lara Pontes */}
+            {/* Mentor Card 5 - Lara Pontes *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -741,7 +806,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Mentor Card 6 - Marianne Monteiro */}
+            {/* Mentor Card 6 - Marianne Monteiro *\/}
             <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
               <div className="relative h-80 w-full overflow-hidden bg-gray-100">
                 <Image
@@ -762,7 +827,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQs Section */}
       <section
