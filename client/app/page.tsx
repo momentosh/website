@@ -26,7 +26,7 @@ function TestimonialsCarousel() {
         "Ter a oportunidade de aprender com pessoas mais experientes e ser mentorado por ex-alunos excelentes profissionais de outras universidades foi fundamental para meu crescimento profissional. As mentorias me ajudaram a entender melhor o mercado de trabalho e a traçar um caminho claro para alcançar meus objetivos de carreira.",
     },
     {
-      name: "João Pedra Vasconcelos",
+      name: "João Pedro Vasconcelos",
       role: "PhD student @ University of Toronto",
       image: "/jpvt.jpeg",
       testimonial:
@@ -215,9 +215,12 @@ function FAQItem({
             {answer}
           </p>
           {hasButton && buttonType === "outline" && (
-            <button className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-hover transition">
+            <a
+              href="mailto:contato@momento.sh"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-hover transition"
+            >
               {buttonText}
-            </button>
+            </a>
           )}
           {hasButton && buttonType === "double" && (
             <div className="flex gap-4 flex-wrap">
@@ -258,7 +261,7 @@ export default function Home() {
     {
       question: "Quem pode participar?",
       answer:
-        "Nesse momento inicial, nosso movimento focará em duas universidades Universidade Federal da Paraíba (UFPB) e Universidade Federal de Campina Grande (UFCG). Vamos selecionar 50 alunos dessas duas instituições para fazer parte de nossa primeira turma. Caso sua universidade não esteja inclusa, você pode preencher o form de interesse abaixo! Vamos estar expandindo o programa em breve.",
+        "Atualmente, estamos focando nossa atuação na região Nordeste, onde o movimento nasceu, mas já temos alunos de outras regiões como a UFG (Universidade Federal de Goiás). O Momento está aberto a estudantes de qualquer universidade do Brasil! Se sua instituição ainda não faz parte do movimento, você pode manifestar interesse através do botão abaixo. Estamos sempre expandindo nossa rede e adoraríamos levar o Momento para mais universidades.",
       hasButton: true,
       buttonText: "Quero na minha universidade",
       buttonType: "outline",
@@ -322,7 +325,7 @@ export default function Home() {
             >
               <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
                 <Image
-                  src="/logo-momento.png"
+                  src="/momentosh.png"
                   alt="Momento Logo"
                   width={40}
                   height={40}
@@ -454,10 +457,10 @@ export default function Home() {
 
             <div className="relative h-96 rounded-2xl overflow-hidden border-4 border-primary/20">
               <Image
-                src="/sobre_photo.jpeg"
+                src="/sobre_image.png"
                 alt="Momento"
                 fill
-                className="object-cover"
+                className="object-cover contrast-85"
               />
             </div>
           </div>
@@ -900,6 +903,15 @@ export default function Home() {
                   <Image
                     src="/uepb.png"
                     alt="UEPB"
+                    width={96}
+                    height={96}
+                    className="w-full h-auto"
+                  />
+                </div>
+                <div className="w-24">
+                  <Image
+                    src="/ufg.png"
+                    alt="UFG"
                     width={96}
                     height={96}
                     className="w-full h-auto"

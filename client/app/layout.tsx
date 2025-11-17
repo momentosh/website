@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     siteName: siteName,
     images: [
       {
-        url: `${baseUrl}/logo-momento.png`,
+        url: `${baseUrl}/momentosh.png`,
         width: 1200,
         height: 630,
         alt: "O Momento é agora - Potencialize sua graduação em tech",
         type: "image/png",
       },
       {
-        url: `${baseUrl}/logo-momento.png`,
+        url: `${baseUrl}/momentosh.png`,
         width: 800,
         height: 600,
         alt: "O Momento é agora",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "O Momento é agora",
     description: siteDescription,
     creator: "@momentosh",
-    images: [`${baseUrl}/logo-momento.png`],
+    images: [`${baseUrl}/momentosh.png`],
   },
 
   // Robots
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
 
   // Icones
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/momentosh.png",
+    shortcut: "/momentosh.png",
+    apple: "/momentosh.png",
   },
 
   // Outros
