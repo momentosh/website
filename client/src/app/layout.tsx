@@ -7,7 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://momento.app.br";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Momento — Find Your Mentor",
+    default: "Momento",
     template: "%s | Momento",
   },
   description:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: "Momento",
-    title: "Momento — Find Your Mentor",
+    title: "Momento",
     description:
       "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Momento — Find Your Mentor",
+    title: "Momento",
     description:
       "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     images: ["/assets/hero.png"],
@@ -43,9 +43,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  icons: {
-    icon: "/favicon.ico",
   },
 };
 
