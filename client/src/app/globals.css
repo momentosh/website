@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "ES Allianz";
+  src: url("/assets/fonts/coolvetica-rg.otf") format("opentype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "LouisGeorge";
+  src: url("/assets/fonts/louis-george-cafe.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "LouisGeorge";
+  src: url("/assets/fonts/louis-george-cafe-bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@theme {
+  --font-display: "ES Allianz", Arial, sans-serif;
+  --font-body: "LouisGeorge", Arial, sans-serif;
+
+  --color-momento-deep: #241240;
+  --color-momento-dark: #3b2065;
+  --color-momento-mid: #693dae;
+  --color-momento-brand: #855cc4;
+  --color-momento-accent: #a87fd4;
+  --color-momento-light: #E4D6FF;
+  --color-momento-lightest: #F6F5F5;
+  --color-momento-cream: #fdf4e5;
+  --color-momento-off-white: #F8F7F4;
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-momento-off-white);
+  color: black;
+  -webkit-font-smoothing: antialiased;
+}
+

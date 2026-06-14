@@ -22,7 +22,20 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+*.swp
+*~
+
+# editors
+.vscode/
+.idea/
+
+# turbo
+.turbo/
+
+# local planning / agent artifacts
+docs/superpowers/
 
 # debug
 npm-debug.log*
