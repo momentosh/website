@@ -12,7 +12,7 @@ export default function Universities() {
         <h3 className="font-display font-medium text-[30px] md:text-[40px] lg:text-[48px] leading-[1.02] tracking-[-0.03em] text-black mb-16">
           {t.universities.title}
         </h3>
-        <div className="flex justify-center items-center gap-16 md:gap-24 flex-wrap">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 md:gap-x-16 md:gap-y-16 justify-items-center items-center">
           {t.universities.items.map((uni) => (
             <a
               key={uni.name}
@@ -20,7 +20,7 @@ export default function Universities() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={uni.name}
-              className="block h-24 md:h-28 w-36 md:w-44 relative grayscale opacity-60 hover:opacity-100 hover:grayscale-0 hover:scale-110 transition-all duration-300 ease-[var(--ease-out-expo)]"
+              className="block h-20 w-full max-w-[10rem] md:h-28 md:max-w-[11rem] relative grayscale opacity-60 hover:opacity-100 hover:grayscale-0 hover:scale-110 transition-all duration-300 ease-[var(--ease-out-expo)]"
             >
               <Image
                 src={uni.logo}
