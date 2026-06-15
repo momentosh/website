@@ -49,7 +49,7 @@ export default function Team() {
           {t.team.title1}<br />{t.team.title2}
         </motion.h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {t.team.members.map((member, idx) => (
             <motion.div
               key={idx}
@@ -57,7 +57,7 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.05 * (idx % 5) }}
-              className="group flex flex-col"
+              className="group flex flex-col grow-0 basis-[calc(50%-0.625rem)] sm:basis-[calc(33.333%-0.834rem)] md:basis-[calc(33.333%-1rem)] lg:basis-[calc(25%-1.125rem)] xl:basis-[calc(20%-1.2rem)]"
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-momento-light">
                 {!failed[idx] ? (

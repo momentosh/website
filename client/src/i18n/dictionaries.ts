@@ -92,6 +92,42 @@ export const pt = {
     title2: "acontecer",
     members: [
       {
+        name: "Itamar Rocha",
+        role: "Fundador",
+        photo: "/assets/itamar.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/itamarrocha/" },
+          { type: "github", url: "https://github.com/ItamarRocha" },
+        ],
+      },
+      {
+        name: "Lara Pontes",
+        role: "Fundadora",
+        photo: "/assets/lara.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/laradicp/" },
+          { type: "github", url: "https://github.com/laradicp" },
+        ],
+      },
+      {
+        name: "Marianne Monteiro",
+        role: "Fundadora",
+        photo: "/assets/marianne.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/mariannelinharesm/" },
+          { type: "github", url: "https://github.com/hereismari" },
+        ],
+      },
+      {
+        name: "Luiz Fernando",
+        role: "Fundador",
+        photo: "/assets/luiz.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/luiz-fernando632/" },
+          { type: "github", url: "https://github.com/luiz826" },
+        ],
+      },
+      {
         name: "Nicole Costa",
         role: "Líder",
         photo: "/assets/nicolecosta.jpg",
@@ -217,8 +253,8 @@ export const pt = {
     ],
   },
   links: {
-    mentee: "https://lnkd.in/dnp9K_2y",
-    mentor: "https://lnkd.in/dXD-vnuu",
+    mentee: "mailto:contato@momento.sh?subject=Quero%20participar%20do%20Momento",
+    mentor: "https://forms.gle/d3v7X4gEkQKUgVof6",
     email: "mailto:contato@momento.sh",
   },
   events: {
@@ -341,6 +377,42 @@ export const en = {
     title1: "The people behind",
     title2: "Momento",
     members: [
+      {
+        name: "Itamar Rocha",
+        role: "Founder",
+        photo: "/assets/itamar.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/itamarrocha/" },
+          { type: "github", url: "https://github.com/ItamarRocha" },
+        ],
+      },
+      {
+        name: "Lara Pontes",
+        role: "Founder",
+        photo: "/assets/lara.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/laradicp/" },
+          { type: "github", url: "https://github.com/laradicp" },
+        ],
+      },
+      {
+        name: "Marianne Monteiro",
+        role: "Founder",
+        photo: "/assets/marianne.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/mariannelinharesm/" },
+          { type: "github", url: "https://github.com/hereismari" },
+        ],
+      },
+      {
+        name: "Luiz Fernando",
+        role: "Founder",
+        photo: "/assets/luiz.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/luiz-fernando632/" },
+          { type: "github", url: "https://github.com/luiz826" },
+        ],
+      },
       {
         name: "Nicole Costa",
         role: "Leader",
@@ -467,8 +539,8 @@ export const en = {
     ],
   },
   links: {
-    mentee: "https://lnkd.in/dnp9K_2y",
-    mentor: "https://lnkd.in/dXD-vnuu",
+    mentee: "mailto:contato@momento.sh?subject=I%20want%20to%20join%20Momento",
+    mentor: "https://forms.gle/d3v7X4gEkQKUgVof6",
     email: "mailto:contato@momento.sh",
   },
   events: {
