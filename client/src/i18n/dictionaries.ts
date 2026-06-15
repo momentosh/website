@@ -250,6 +250,8 @@ export const pt = {
       { name: "UFCG", logo: "/assets/ufcg.png", url: "https://www.ufcg.edu.br" },
       { name: "UEPB", logo: "/assets/uepb.png", url: "https://www.uepb.edu.br" },
       { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
+      { name: "UFPE", logo: "/assets/ufpe.png", url: "https://www.ufpe.br" },
+      { name: "UFBA", logo: "/assets/ufba.png", url: "https://ufba.br" },
     ],
   },
   links: {
@@ -280,7 +282,7 @@ export const pt = {
     ctaNotice: "Inscrições fechadas no momento. Deixe seu interesse para o próximo ciclo.",
     desc: "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     navTitle: "Navegação",
-    copyright: "© 2025 Momento. Todos os direitos reservados."
+    copyright: "© 2026 Momento. Todos os direitos reservados."
   }
 };
 
@@ -536,6 +538,8 @@ export const en = {
       { name: "UFCG", logo: "/assets/ufcg.png", url: "https://www.ufcg.edu.br" },
       { name: "UEPB", logo: "/assets/uepb.png", url: "https://www.uepb.edu.br" },
       { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
+      { name: "UFPE", logo: "/assets/ufpe.png", url: "https://www.ufpe.br" },
+      { name: "UFBA", logo: "/assets/ufba.png", url: "https://ufba.br" },
     ],
   },
   links: {
@@ -566,7 +570,7 @@ export const en = {
     ctaNotice: "Applications are currently closed. Express your interest for the next cycle.",
     desc: "Connecting university students to the job market through mentorship and community.",
     navTitle: "Navigation",
-    copyright: "© 2025 Momento. All rights reserved."
+    copyright: "© 2026 Momento. All rights reserved."
   }
 };
 
