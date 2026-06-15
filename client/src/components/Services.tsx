@@ -36,7 +36,7 @@ export default function Services() {
           {t.services.title1}<br/>{t.services.title2}
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {cardsWithDelay.map((card, idx) => (
             <motion.article
               key={idx}
@@ -49,7 +49,7 @@ export default function Services() {
               }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="group flex flex-col rounded-[24px] bg-white/[0.04] border border-white/10 p-8 lg:p-9 transition-[background-color,border-color,box-shadow] duration-300 hover:bg-white/[0.07] hover:border-momento-accent hover:shadow-[0_24px_50px_-20px_rgba(168,127,212,0.45)]"
+              className="group flex h-full flex-col rounded-[24px] bg-white/[0.04] border border-white/10 p-8 lg:p-9 transition-[background-color,border-color,box-shadow] duration-300 hover:bg-white/[0.07] hover:border-momento-accent hover:shadow-[0_24px_50px_-20px_rgba(168,127,212,0.45)]"
             >
               <h3 className="font-display text-[26px] md:text-[30px] lg:text-[34px] font-medium leading-[1.05] tracking-[-0.02em] text-white">
                 {card.title}

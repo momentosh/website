@@ -23,7 +23,7 @@ export default function Navbar() {
       if (e.key === "Escape") setIsMenuOpen(false);
     };
     const onResize = () => {
-      if (window.innerWidth >= 1024) setIsMenuOpen(false);
+      if (window.innerWidth >= 1280) setIsMenuOpen(false);
     };
 
     document.addEventListener("keydown", onKey);
@@ -63,7 +63,7 @@ export default function Navbar() {
         className={`fixed inset-x-0 h-[72px] z-[1000] px-[5vw] flex items-center border-b border-transparent transition-all duration-300 top-0`}
       >
         {/* Desktop layout */}
-        <div className="hidden lg:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
+        <div className="hidden xl:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
           <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto" />
 
           <nav className="flex justify-center gap-12 text-base font-medium">
@@ -85,7 +85,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile layout */}
-        <div className="flex lg:hidden items-center justify-between w-full">
+        <div className="flex xl:hidden items-center justify-between w-full">
           <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-12 w-auto" />
 
           <button
@@ -126,7 +126,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeMenu}
-              className="fixed inset-0 z-[998] bg-black/30 lg:hidden"
+              className="fixed inset-0 z-[998] bg-black/30 xl:hidden"
               aria-hidden="true"
             />
             <motion.div
@@ -138,7 +138,7 @@ export default function Navbar() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               style={{ WebkitBackdropFilter: "blur(12px)", backdropFilter: "blur(12px)" }}
-              className={`fixed inset-x-0 z-[999] overflow-hidden bg-white/95 shadow-lg lg:hidden top-[72px]`}
+              className={`fixed inset-x-0 z-[999] overflow-hidden bg-white/95 shadow-lg xl:hidden top-[72px]`}
             >
               <nav className="flex flex-col px-[5vw] py-4">
                 {navLinks.map((link) => (
