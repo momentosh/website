@@ -86,7 +86,7 @@ export default function CTA() {
                   src={event.thumbnail}
                   alt={event.title}
                   fill
-                  className="object-cover opacity-80"
+                  className="object-contain md:object-cover opacity-80"
                 />
               </motion.div>
             </AnimatePresence>

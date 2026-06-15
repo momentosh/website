@@ -75,7 +75,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-dvh text-momento-dark flex items-center justify-center overflow-hidden"
+      className="relative min-h-dvh text-momento-dark flex flex-col overflow-hidden px-[5vw] pt-24 pb-12 md:justify-center md:py-20"
     >
       {/* Aurora roxa que respira atrás do título (decorativa) + parallax na saída */}
       <motion.div
@@ -103,15 +103,16 @@ export default function Hero() {
         ))}
       </motion.div>
 
+      {/* Título grande que preenche a tela; cresce para ocupar o espaço disponível */}
       <motion.div
-        className="relative"
+        className="relative flex flex-1 md:flex-none items-center justify-center"
         style={reduceMotion ? undefined : { y: titleY, opacity: titleOpacity }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="px-[5vw] text-center font-display font-medium lowercase text-[clamp(64px,13vw,180px)] leading-[0.82] tracking-[-0.045em] text-momento-brand"
+          className="text-center font-display font-medium lowercase text-[clamp(48px,min(26vw,20vh),220px)] leading-[0.82] tracking-[-0.045em] text-momento-brand break-words"
         >
           {leadWords.map((word) => (
             <span key={word} className="block">
@@ -120,26 +121,28 @@ export default function Hero() {
           ))}
           <span className="block">{t.hero.title2}</span>
         </motion.h1>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-          className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+      {/* Telefone (< md): título preenche e botões descem para o rodapé.
+          Tablet/desktop (>= md): conjunto centralizado, botões juntos do título. */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+        className="relative flex w-full flex-col sm:flex-row items-center justify-center gap-4 max-w-xs sm:max-w-none mx-auto mt-8 md:mt-10"
+      >
+        <a
+          href="#time"
+          className="inline-flex w-full sm:w-auto items-center justify-center rounded-full px-7 py-3.5 text-base font-medium bg-momento-brand text-white border border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
         >
-          <a
-            href="#time"
-            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-medium bg-momento-brand text-white border border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
-          >
-            {t.hero.btnPrimary}
-          </a>
-          <a
-            href="#sobre"
-            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-medium text-momento-dark border border-momento-dark/20 transition-all duration-300 hover:border-momento-brand hover:text-momento-brand"
-          >
-            {t.hero.btnSecondary}
-          </a>
-        </motion.div>
+          {t.hero.btnPrimary}
+        </a>
+        <a
+          href="#sobre"
+          className="inline-flex w-full sm:w-auto items-center justify-center rounded-full px-7 py-3.5 text-base font-medium text-momento-dark border border-momento-dark/20 transition-all duration-300 hover:border-momento-brand hover:text-momento-brand"
+        >
+          {t.hero.btnSecondary}
+        </a>
       </motion.div>
     </section>
   );
