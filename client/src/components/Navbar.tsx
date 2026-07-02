@@ -80,7 +80,7 @@ export default function Navbar() {
 
           <div className="justify-self-end flex items-center gap-6">
             <LangToggle language={language} setLanguage={setLanguage} />
-            <CtaButton href={t.links.mentee} label={t.navbar.cta} />
+            <CtaButton href="#inscricoes" label={t.navbar.cta} />
           </div>
         </div>
 
@@ -163,7 +163,7 @@ export default function Navbar() {
                 </div>
 
                 <CtaButton
-                  href={t.links.mentee}
+                  href="#inscricoes"
                   label={t.navbar.cta}
                   fullWidth
                   onClick={closeMenu}
@@ -226,11 +226,13 @@ function CtaButton({
     fullWidth ? "w-full" : ""
   }`;
 
+  const isExternal = !href.startsWith("#");
+
   return (
     <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       onClick={onClick}
       className={`${base} bg-momento-brand text-white border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand`}
     >

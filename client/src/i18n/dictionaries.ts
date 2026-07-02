@@ -18,6 +18,12 @@ export const pt = {
     btnPrimary: "Conheça o time",
     btnSecondary: "Como funciona",
   },
+  apply: {
+    title: "As inscrições estão abertas",
+    description: "Garanta sua vaga no próximo ciclo de mentorias do Momento. Preencha o formulário e dê o primeiro passo na sua jornada.",
+    btn: "Quero me inscrever",
+    note: "Vagas limitadas · Leva apenas alguns minutos",
+  },
   about: {
     badge: "Comunidade Momento",
     title1: "Sobre o momento",
@@ -305,6 +311,12 @@ export const en = {
     description: "We connect students to industry professionals for 1-on-1 mentorships that transform careers.",
     btnPrimary: "Meet the team",
     btnSecondary: "How it works",
+  },
+  apply: {
+    title: "Applications are now open",
+    description: "Secure your spot in Momento's next mentorship cycle. Fill out the form and take the first step in your journey.",
+    btn: "Apply now",
+    note: "Limited spots · Takes a few minutes",
   },
   about: {
     badge: "Momento Community",
