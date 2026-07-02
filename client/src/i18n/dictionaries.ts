@@ -12,9 +12,9 @@ export const pt = {
     closeMenu: "Fechar menu",
   },
   hero: {
-    title1: "find your",
+    title1: "encontre o seu",
     title2: "mentor",
-    description: "Conectamos universitários a profissionais do mercado para mentorias 1-a-1 que transformam carreiras.",
+    description: "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     btnPrimary: "Conheça o time",
     btnSecondary: "Como funciona",
   },
@@ -308,7 +308,7 @@ export const en = {
   hero: {
     title1: "find your",
     title2: "mentor",
-    description: "We connect students to industry professionals for 1-on-1 mentorships that transform careers.",
+    description: "Connecting university students to the job market through mentorship and community.",
     btnPrimary: "Meet the team",
     btnSecondary: "How it works",
   },
