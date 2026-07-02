@@ -20,8 +20,8 @@ export default function Home() {
       <Team />
       <Services />
       <CTA />
-      <FAQ />
       <Apply />
+      <FAQ />
       <Universities />
       <Footer />
     </main>
