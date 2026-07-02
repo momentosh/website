@@ -7,6 +7,7 @@ import Team from "@/components/Team";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Universities from "@/components/Universities";
+import Apply from "@/components/Apply";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Services />
       <CTA />
       <FAQ />
+      <Apply />
       <Universities />
       <Footer />
     </main>
