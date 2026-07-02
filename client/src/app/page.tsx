@@ -21,8 +21,8 @@ export default function Home() {
       <Services />
       <CTA />
       <FAQ />
-      <Universities />
       <Apply />
+      <Universities />
       <Footer />
     </main>
   );
