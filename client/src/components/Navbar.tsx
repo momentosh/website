@@ -80,7 +80,6 @@ export default function Navbar() {
 
           <div className="justify-self-end flex items-center gap-6">
             <LangToggle language={language} setLanguage={setLanguage} />
-            <CtaButton href="#inscricoes" label={t.navbar.cta} />
           </div>
         </div>
 
@@ -161,13 +160,6 @@ export default function Navbar() {
                     }}
                   />
                 </div>
-
-                <CtaButton
-                  href="#inscricoes"
-                  label={t.navbar.cta}
-                  fullWidth
-                  onClick={closeMenu}
-                />
               </nav>
             </motion.div>
           </>
@@ -208,35 +200,5 @@ function LangToggle({
         );
       })}
     </div>
-  );
-}
-
-function CtaButton({
-  href,
-  label,
-  fullWidth = false,
-  onClick,
-}: {
-  href: string;
-  label: string;
-  fullWidth?: boolean;
-  onClick?: () => void;
-}) {
-  const base = `inline-flex justify-center border rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap min-w-[140px] ${
-    fullWidth ? "w-full" : ""
-  }`;
-
-  const isExternal = !href.startsWith("#");
-
-  return (
-    <Link
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
-      onClick={onClick}
-      className={`${base} bg-momento-brand text-white border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand`}
-    >
-      {label}
-    </Link>
   );
 }
