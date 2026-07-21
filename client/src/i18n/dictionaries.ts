@@ -18,23 +18,6 @@ export const pt = {
     btnPrimary: "Conheça o time",
     btnSecondary: "Como funciona",
   },
-  apply: {
-    title: "As inscrições estão abertas",
-    description: "Este ciclo tem duas trilhas de inscrição, e as duas fazem parte do Momento. Separamos apenas para deixar a experiência de cada pessoa mais direcionada. Escolha a que combina com o seu momento na graduação.",
-    note: "Vagas limitadas · Leva apenas alguns minutos",
-    tracks: {
-      momentinho: {
-        name: "Momentinho",
-        description: "A trilha que carinhosamente chamamos de momentinho, feita para quem está começando a graduação, até o 3 período. Um espaço mais acolhedor para dar os primeiros passos com apoio de perto.",
-        btn: "Inscrever no Momentinho",
-      },
-      momento: {
-        name: "Momento",
-        description: "O Momento de fato, para quem já está a partir do 4 período e quer aprofundar objetivos de carreira com mentoria direcionada.",
-        btn: "Inscrever no Momento",
-      },
-    },
-  },
   about: {
     badge: "Comunidade Momento",
     title1: "Sobre o momento",
@@ -322,23 +305,6 @@ export const en = {
     description: "Connecting university students to the job market through mentorship and community.",
     btnPrimary: "Meet the team",
     btnSecondary: "How it works",
-  },
-  apply: {
-    title: "Applications are now open",
-    description: "This cycle has two application tracks, and both are part of Momento. We split them only to make each person's experience more tailored. Pick the one that matches where you are in your degree.",
-    note: "Limited spots · Takes a few minutes",
-    tracks: {
-      momentinho: {
-        name: "Momentinho",
-        description: "The track we affectionately call momentinho, made for those just starting their degree — up to the 3rd semester. A more welcoming space to take the first steps with close support.",
-        btn: "Apply to Momentinho",
-      },
-      momento: {
-        name: "Momento",
-        description: "Momento itself, for those from the 4th semester on who want to deepen career goals with tailored mentorship.",
-        btn: "Apply to Momento",
-      },
-    },
   },
   about: {
     badge: "Momento Community",
