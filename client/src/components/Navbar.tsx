@@ -52,6 +52,11 @@ export default function Navbar() {
     { href: "/manual-mentoria", label: t.footer.manualMentee },
     { href: "/manual-mentor", label: t.footer.manualMentor },
   ];
+  const mobileNavLinks = [
+    ...navLinks.filter((link) => link.href !== `${homePrefix}#faq`),
+    ...mobileManualLinks,
+    { href: `${homePrefix}#faq`, label: t.navbar.faq },
+  ];
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -147,7 +152,7 @@ export default function Navbar() {
               className={`fixed inset-x-0 z-[999] overflow-hidden bg-white/95 shadow-lg xl:hidden top-[72px]`}
             >
               <nav className="flex max-h-[calc(100dvh-72px)] flex-col overflow-y-auto px-[5vw] py-4">
-                {[...navLinks, ...mobileManualLinks].map((link) => (
+                {mobileNavLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
