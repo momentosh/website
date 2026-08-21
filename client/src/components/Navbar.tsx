@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
@@ -11,6 +12,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
+  const pathname = usePathname();
+  const homePrefix = pathname === "/" ? "" : "/";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -39,11 +42,11 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: "#sobre", label: t.navbar.about },
-    { href: "#depoimentos", label: t.navbar.testimonials },
-    { href: "#time", label: t.navbar.team },
-    { href: "#servicos", label: t.navbar.services },
-    { href: "#faq", label: t.navbar.faq },
+    { href: `${homePrefix}#sobre`, label: t.navbar.about },
+    { href: `${homePrefix}#depoimentos`, label: t.navbar.testimonials },
+    { href: `${homePrefix}#time`, label: t.navbar.team },
+    { href: `${homePrefix}#servicos`, label: t.navbar.services },
+    { href: `${homePrefix}#faq`, label: t.navbar.faq },
   ];
 
   const closeMenu = () => setIsMenuOpen(false);

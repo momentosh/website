@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const homePrefix = pathname === "/" ? "" : "/";
 
   return (
     <footer className="relative bg-momento-off-white pt-20 pb-12 px-[5vw]">
@@ -39,10 +42,12 @@ export default function Footer() {
               <div>
                 <p className="font-display text-sm font-semibold text-black mb-5 tracking-wide">{t.footer.navTitle}</p>
                 <ul className="flex flex-col gap-3 text-neutral-500 text-[15px]">
-                  <li><Link href="#sobre" className="hover:text-black transition-colors">{t.navbar.about}</Link></li>
-                  <li><Link href="#depoimentos" className="hover:text-black transition-colors">{t.navbar.testimonials}</Link></li>
-                  <li><Link href="#servicos" className="hover:text-black transition-colors">{t.navbar.services}</Link></li>
-                  <li><Link href="#faq" className="hover:text-black transition-colors">{t.navbar.faq}</Link></li>
+                  <li><Link href={`${homePrefix}#sobre`} className="hover:text-black transition-colors">{t.navbar.about}</Link></li>
+                  <li><Link href={`${homePrefix}#depoimentos`} className="hover:text-black transition-colors">{t.navbar.testimonials}</Link></li>
+                  <li><Link href={`${homePrefix}#servicos`} className="hover:text-black transition-colors">{t.navbar.services}</Link></li>
+                  <li><Link href={`${homePrefix}#faq`} className="hover:text-black transition-colors">{t.navbar.faq}</Link></li>
+                  <li><Link href="/manual-mentoria" className="hover:text-black transition-colors">Manual do Mentorado</Link></li>
+                  <li><Link href="/manual-mentor" className="hover:text-black transition-colors">Manual do Mentor</Link></li>
                 </ul>
               </div>
               <div>
