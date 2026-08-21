@@ -282,8 +282,122 @@ export const pt = {
     ctaNotice: "Inscrições fechadas no momento. Deixe seu interesse para o próximo ciclo.",
     desc: "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     navTitle: "Navegação",
+    manualMentee: "Manual do Mentorado",
+    manualMentor: "Manual do Mentor",
     copyright: "© 2026 Momento. Todos os direitos reservados."
-  }
+  },
+  manual: {
+    objectives: [
+      {
+        title: "Acelerar o desenvolvimento",
+        desc: "A mentoria pode acelerar o desenvolvimento do mentorado, fornecendo-lhe insights e orientações que levariam mais tempo para serem adquiridos por conta própria. Ao aprender com quem já passou por desafios parecidos, você evita erros comuns e chega mais rápido a decisões importantes para a sua carreira.",
+      },
+      {
+        title: "Desenvolver habilidades",
+        desc: "A mentoria ajuda o mentorado a desenvolver habilidades específicas, tanto técnicas quanto comportamentais, que são importantes para seu sucesso.",
+      },
+      {
+        title: "Expandir o conhecimento",
+        desc: "O mentor compartilha seu conhecimento e experiência com o mentorado, ajudando-o a expandir sua compreensão de um determinado campo ou área de atuação.",
+      },
+      {
+        title: "Aumentar a confiança",
+        desc: "A mentoria pode aumentar a confiança do mentorado, fornecendo-lhe apoio e incentivo para perseguir seus objetivos.",
+      },
+      {
+        title: "Promover o networking",
+        desc: "A mentoria pode abrir portas para novas oportunidades de networking, conectando o mentorado a pessoas e recursos relevantes.",
+      },
+      {
+        title: "Auxiliar na tomada de decisões",
+        desc: "A mentoria pode auxiliar o mentorado na tomada de decisões importantes, fornecendo-lhe diferentes perspectivas e insights.",
+      },
+      {
+        title: "Servir de apoio",
+        desc: "A mentoria funciona como um apoio para o mentorado, onde ele pode compartilhar suas dificuldades e desafios e obter ajuda do mentor.",
+      },
+    ],
+    activities: [
+      "Dicas de currículo e preparação para processos seletivos.",
+      "Revisão de código e dicas técnicas sobre uma tecnologia.",
+      "Compartilhar experiências (tanto sucessos quanto fracassos).",
+      "Treino de inglês.",
+      "Discussão de artigos.",
+      "Dicas de recursos (livros, cursos, repositórios no GitHub).",
+      "Criação de planos de ação.",
+    ],
+  },
+  manualMentee: {
+    metaTitle: "Manual de Mentoria para Mentorados",
+    metaDescription: "Guia do programa de mentorias do Momento: o que é, seus objetivos e como aproveitar ao máximo cada encontro com o seu mentor.",
+    backLink: "← Voltar para o início",
+    badge: "Guia do Mentorado",
+    title1: "Manual de Mentoria",
+    title2: "para mentorados",
+    objectivesHeading: "O que é e qual o objetivo da mentoria?",
+    objectivesIntro: "Em resumo, a mentoria é uma ferramenta poderosa para o desenvolvimento pessoal e profissional, que pode beneficiar tanto o mentor quanto o mentorado.",
+    stepsHeading: "Como aproveitar a mentoria ao máximo?",
+    stepsIntro: "O mais importante é sempre ter em mente que a mentoria é um momento para você — é sobre como utilizar esse momento com o mentor para crescer, aprender e se desenvolver da melhor forma!",
+    steps: [
+      {
+        title: "Reflita sobre o que você gostaria de obter do relacionamento de mentoria",
+        desc: "Com o que o seu mentor poderia lhe ajudar? No que você sente que ainda precisa se desenvolver? Que perguntas você gostaria de perguntar a alguém que já esteve numa situação profissional similar à sua? Você está enfrentando algum desafio que poderia utilizar ajuda do mentor?",
+      },
+      {
+        title: "Prepare-se para suas mentorias",
+        desc: "Você deve guiar o seu processo de mentoria, trazendo questões e pontos de discussão para o seu mentor. Em um primeiro momento, é importante que você e seu mentor se conheçam, então dediquem um tempo para apresentações e alinhamento de expectativas na primeira mentoria. Relate o que você gostaria de obter do relacionamento de mentoria. Dando prosseguimento, vale anotar perguntas e organizar a agenda das sessões com antecedência.",
+      },
+      {
+        title: "Respeite o tempo das mentorias",
+        desc: "Você deve combinar a frequência e a duração das mentorias com seu mentor. Sugerimos 6 encontros distribuídos entre agosto e janeiro, com duração de até 50 minutos por sessão. Seja pontual, respeite o tempo alocado para as mentorias e foque as interações nesse momento.",
+      },
+      {
+        title: "Abrace o feedback",
+        desc: "Encare o feedback de forma leve e positiva. Você e seu mentor estão no mesmo time para alavancar seu potencial, logo se abra a ouvir feedbacks e coloque em prática as ações que fizerem sentido para você, retribuindo com insights do que funcionou ou não.",
+      },
+    ],
+    activitiesStepTitle: "Exemplos de atividades que podem ser feitas durante a mentoria",
+  },
+  manualMentor: {
+    metaTitle: "Manual de Mentoria para Mentores",
+    metaDescription: "Guia do programa de mentorias do Momento: o que esperar das mentorias, como ser um bom mentor e como entrar em contato em caso de dúvidas.",
+    backLink: "← Voltar para o início",
+    badge: "Guia do Mentor",
+    title1: "Manual de Mentoria",
+    title2: "para mentores",
+    objectivesHeading: "O que é e qual o objetivo da mentoria?",
+    objectivesIntro: [
+      "A mentoria é um processo de desenvolvimento pessoal e profissional no qual uma pessoa mais experiente (o mentor) guia e apoia outra pessoa (o mentorado).",
+      "Esperamos dos mentores o comprometimento de 6 sessões de 50 minutos de contato com os mentorados ao longo de um ciclo de seis meses (agosto a janeiro). As datas e horários desses encontros podem ser acertadas entre mentor e mentorado de acordo com a disponibilidade de ambos.",
+      "O benefício da mentoria não é apenas a troca de conhecimento e habilidades, mas também oferece socialização profissional e apoio pessoal para enfrentar desafios e desenvolver o potencial dos mentorados. Uma boa mentoria faz toda a diferença na vida dos alunos! Veja os depoimentos no site do Momento como um exemplo.",
+      "O objetivo principal da mentoria é promover o crescimento e o aprendizado do mentorado, ajudando-o a alcançar seus objetivos e desenvolver seu potencial.",
+    ],
+    stepsHeading: "Como ser um bom mentor?",
+    stepsIntro: "Isso pode se dar de várias formas a depender das necessidades do mentorado, mas sempre:",
+    steps: [
+      {
+        title: "Certifique-se de que você está sendo um ouvinte ativo",
+        desc: "Pode ser útil ao orientar tentar seguir a regra “80/20”. O mentorado deve falar cerca de 80% do tempo, enquanto você deve falar cerca de 20% do tempo. Como um ouvinte ativo, em vez de dar conselhos, você pode ajudá-lo a desenvolver suas ideias e entender melhor seus desafios, para que ele possa encontrar soluções por si mesmo.",
+      },
+      {
+        title: "Pergunte ao seu mentorado o que ele gostaria de obter do relacionamento de mentoria",
+        desc: "Os mentorados foram solicitados a pensar um pouco sobre isso, então devem ter uma resposta preparada. Isso ajudará a direcionar suas conversas e mantê-las no caminho certo — garantindo que sejam benéficas para os mentorados e que eles ganhem o máximo possível.",
+      },
+      {
+        title: "Identifique problemas específicos com os quais você pode ajudar seu mentorado",
+        desc: "Um bom lugar para começar pode ser perguntar ao seu mentorado se há um certo desafio que ele esteja enfrentando em que ele acredita que a mentoria seria útil. Se eles não conseguirem pensar em algo para começar, tudo bem — você pode identificar um problema específico com o qual pode ajudá-los enquanto conversam. Tente garantir que seu mentorado saia de cada conversa com pelo menos uma ação clara e positiva. Pode ser útil instigá-los: “o que você faria de diferente depois da nossa discussão de hoje? Há algo que você gostaria de se comprometer a fazer?”",
+      },
+      {
+        title: "Forneça feedback construtivo",
+        desc: "Tente ser encorajador e construtivo em vez de crítico. Como você pode ajudá-los a ir de bom para ótimo? As sugestões são mais úteis quando são acionáveis e focadas no futuro.",
+      },
+      {
+        title: "Lembre-se de que seus mentorados podem ser um pouco tímidos",
+        desc: "A mentoria pode ser uma experiência intimidadora para os alunos, então alguns mentorados podem levar um tempo para construir um relacionamento com você. Tire um tempo para se apresentar e aprender sobre seu mentorado. Encontrar um ponto em comum é um ótimo começo. Faça um esforço para fazê-los se sentirem confortáveis — mostre que você está envolvido na conversa, faça perguntas e mova a conversa quando necessário.",
+      },
+    ],
+    activitiesStepTitle: "Exemplos de atividades que podem ser feitas durante a mentoria",
+  },
 };
 
 export const en = {
@@ -570,7 +684,121 @@ export const en = {
     ctaNotice: "Applications are currently closed. Express your interest for the next cycle.",
     desc: "Connecting university students to the job market through mentorship and community.",
     navTitle: "Navigation",
+    manualMentee: "Mentee Guide",
+    manualMentor: "Mentor Guide",
     copyright: "© 2026 Momento. All rights reserved."
+  },
+  manual: {
+    objectives: [
+      {
+        title: "Accelerate development",
+        desc: "Mentorship can accelerate the mentee's development by providing insights and guidance that would otherwise take longer to acquire on their own. Learning from someone who has already faced similar challenges helps you avoid common mistakes and reach important career decisions faster.",
+      },
+      {
+        title: "Develop skills",
+        desc: "Mentorship helps the mentee develop specific skills, both technical and behavioral, that are important for their success.",
+      },
+      {
+        title: "Expand knowledge",
+        desc: "The mentor shares their knowledge and experience with the mentee, helping them expand their understanding of a given field or area.",
+      },
+      {
+        title: "Increase confidence",
+        desc: "Mentorship can increase the mentee's confidence by providing support and encouragement to pursue their goals.",
+      },
+      {
+        title: "Promote networking",
+        desc: "Mentorship can open doors to new networking opportunities, connecting the mentee to relevant people and resources.",
+      },
+      {
+        title: "Support decision-making",
+        desc: "Mentorship can help the mentee make important decisions by providing different perspectives and insights.",
+      },
+      {
+        title: "Provide support",
+        desc: "Mentorship acts as a support system for the mentee, who can share their difficulties and challenges and get help from their mentor.",
+      },
+    ],
+    activities: [
+      "Resume tips and interview process prep.",
+      "Code reviews and technical tips on a given technology.",
+      "Sharing experiences (both successes and failures).",
+      "English practice.",
+      "Discussing articles.",
+      "Resource recommendations (books, courses, GitHub repositories).",
+      "Creating action plans.",
+    ],
+  },
+  manualMentee: {
+    metaTitle: "Mentoring Guide for Mentees",
+    metaDescription: "Guide to Momento's mentorship program: what it is, its goals, and how to make the most of every session with your mentor.",
+    backLink: "← Back to home",
+    badge: "Mentee Guide",
+    title1: "Mentoring Guide",
+    title2: "for mentees",
+    objectivesHeading: "What is mentorship and what's its goal?",
+    objectivesIntro: "In short, mentorship is a powerful tool for personal and professional development that can benefit both the mentor and the mentee.",
+    stepsHeading: "How to make the most of mentorship?",
+    stepsIntro: "The most important thing to keep in mind is that mentorship is a moment for you — it's about how you use this time with your mentor to grow, learn, and develop in the best way possible!",
+    steps: [
+      {
+        title: "Reflect on what you'd like to get out of the mentorship relationship",
+        desc: "What could your mentor help you with? What do you feel you still need to develop? What questions would you like to ask someone who has already been in a professional situation similar to yours? Are you facing any challenge where your mentor's help could be useful?",
+      },
+      {
+        title: "Prepare for your mentorship sessions",
+        desc: "You should guide your own mentorship process, bringing questions and discussion points to your mentor. At first, it's important that you and your mentor get to know each other, so set aside time for introductions and to align expectations in the first session. Share what you'd like to get out of the mentorship relationship. Going forward, it's worth writing down questions and organizing the session agenda in advance.",
+      },
+      {
+        title: "Respect the time set aside for mentorship",
+        desc: "You should agree on the frequency and duration of sessions with your mentor. We suggest 6 sessions spread between August and January, lasting up to 50 minutes each. Be punctual, respect the time allocated for mentorship, and keep the conversation focused during that time.",
+      },
+      {
+        title: "Embrace feedback",
+        desc: "Approach feedback in a light and positive way. You and your mentor are on the same team to leverage your potential, so stay open to hearing feedback and put into practice the actions that make sense to you, giving back insights on what worked or didn't.",
+      },
+    ],
+    activitiesStepTitle: "Examples of activities you can do during mentorship",
+  },
+  manualMentor: {
+    metaTitle: "Mentoring Guide for Mentors",
+    metaDescription: "Guide to Momento's mentorship program: what to expect from mentorship, how to be a good mentor, and how to reach out with any questions.",
+    backLink: "← Back to home",
+    badge: "Mentor Guide",
+    title1: "Mentoring Guide",
+    title2: "for mentors",
+    objectivesHeading: "What is mentorship and what's its goal?",
+    objectivesIntro: [
+      "Mentorship is a process of personal and professional development in which a more experienced person (the mentor) guides and supports another person (the mentee).",
+      "We expect mentors to commit to 6 sessions of 50 minutes with their mentees over a six-month cycle (August to January). Dates and times for these sessions can be arranged between mentor and mentee according to both of their availability.",
+      "The benefit of mentorship isn't just the exchange of knowledge and skills — it also offers professional socialization and personal support to face challenges and develop mentees' potential. A good mentorship makes all the difference in students' lives! Check out the testimonials on Momento's website as an example.",
+      "The main goal of mentorship is to promote the mentee's growth and learning, helping them achieve their goals and develop their potential.",
+    ],
+    stepsHeading: "How to be a good mentor?",
+    stepsIntro: "This can happen in several ways depending on the mentee's needs, but always:",
+    steps: [
+      {
+        title: "Make sure you're being an active listener",
+        desc: "It can help to try to follow the “80/20” rule when guiding. The mentee should speak about 80% of the time, while you should speak about 20% of the time. As an active listener, instead of giving advice, you can help them develop their own ideas and better understand their challenges, so they can find solutions on their own.",
+      },
+      {
+        title: "Ask your mentee what they'd like to get out of the mentorship relationship",
+        desc: "Mentees were asked to think about this beforehand, so they should have an answer ready. This will help steer your conversations and keep them on track — making sure they're beneficial for mentees and that they get the most out of it.",
+      },
+      {
+        title: "Identify specific problems you can help your mentee with",
+        desc: "A good place to start can be asking your mentee if there's a particular challenge they're facing where they believe mentorship could help. If they can't think of anything to start with, that's fine — you can identify a specific problem to help them with as you talk. Try to make sure your mentee leaves every conversation with at least one clear, positive action. It can help to prompt them: “What would you do differently after today's discussion? Is there something you'd like to commit to doing?”",
+      },
+      {
+        title: "Provide constructive feedback",
+        desc: "Try to be encouraging and constructive rather than critical. How can you help them go from good to great? Suggestions are most useful when they're actionable and future-focused.",
+      },
+      {
+        title: "Remember that your mentees might be a little shy",
+        desc: "Mentorship can be an intimidating experience for students, so some mentees may take a while to build a relationship with you. Take time to introduce yourself and learn about your mentee. Finding common ground is a great start. Make an effort to help them feel comfortable — show that you're engaged in the conversation, ask questions, and steer the conversation when needed.",
+      },
+    ],
+    activitiesStepTitle: "Examples of activities you can do during mentorship",
   }
 };
 
