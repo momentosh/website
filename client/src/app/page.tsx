@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Plataforma from "@/components/Plataforma";
 import Testimonial from "@/components/Testimonial";
 import Team from "@/components/Team";
 import CTA from "@/components/CTA";
@@ -18,6 +19,10 @@ export default function Home() {
       <Testimonial />
       <Team />
       <Services />
+      {/* Depois de Services, que fala do programa: a ferramenta vem quando a
+          pessoa já sabe do que ela é ferramenta. Antes do CTA de inscrição,
+          porque quem já participa entra, e quem não participa se inscreve. */}
+      <Plataforma />
       <CTA />
       <FAQ />
       <Universities />

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { PLATAFORMA } from "@/urls";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
@@ -75,7 +76,12 @@ export default function Navbar() {
         className={`fixed inset-x-0 h-[72px] z-[1000] px-[5vw] flex items-center border-b border-transparent transition-all duration-300 top-0`}
       >
         {/* Desktop layout */}
-        <div className="hidden xl:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
+        {/* A trilha da direita era 200px fixos, o que bastava para o seletor de
+            idioma sozinho. Com o "Entrar" ao lado ela passou a apertar, e em
+            inglês ("Sign in") o botão quebrava em duas linhas. `minmax` mantém a
+            largura mínima que centralizava a navegação e deixa crescer — `auto`
+            puro deixaria a trilha encolher e tiraria a navegação do centro. */}
+        <div className="hidden xl:grid grid-cols-[200px_1fr_minmax(200px,auto)] gap-4 items-center max-w-[1440px] mx-auto w-full">
           <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto" />
 
           <nav className="flex justify-center gap-12 text-base font-medium">
@@ -90,8 +96,29 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="justify-self-end flex items-center gap-6">
+          <div className="justify-self-end flex items-center gap-4">
             <LangToggle language={language} setLanguage={setLanguage} />
+            {/*
+              Fora do `navLinks`: aqueles são âncoras desta página, este sai do
+              site para a plataforma. `<a>` e não `<Link>` pelo mesmo motivo —
+              outro domínio, outro app, nada para o roteador pré-buscar.
+
+              Último da barra, depois do seletor de idioma: ação de conta mora no
+              canto, é ali que quem já tem conta procura.
+
+              `text-sm` e `px-5`, não o `text-base px-6` dos outros botões do
+              site. Dá 82x43px contra os 54px do CTA do hero, e a barra é fixa —
+              no tamanho cheio esse pill acompanhava a rolagem e virava o
+              elemento mais pesado de toda seção, empatando com a primária da
+              tela. Sólido mesmo assim: em contorno ele e o seletor viram dois
+              pills iguais lado a lado e o seletor é que parece o botão.
+            */}
+            <a
+              href={PLATAFORMA}
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium bg-momento-brand text-white border border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
+            >
+              {t.navbar.enter}
+            </a>
           </div>
         </div>
 
@@ -162,6 +189,14 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+
+                <a
+                  href={PLATAFORMA}
+                  onClick={closeMenu}
+                  className="mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-lg font-medium bg-momento-brand text-white border border-momento-brand transition-all duration-300"
+                >
+                  {t.navbar.enter}
+                </a>
 
                 <div className="flex justify-center pt-6 pb-4">
                   <LangToggle

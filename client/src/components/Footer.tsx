@@ -58,6 +58,17 @@ export default function Footer() {
                   <li><a href="mailto:contato@momento.sh" className="hover:text-black transition-colors">Email</a></li>
                 </ul>
               </div>
+              {/* A coluna existe por exigência de verificação, não por gosto: a
+                  tela de consentimento do Google pede a política de privacidade
+                  alcançável a partir da home page, e esta é a home declarada lá.
+                  O rodapé aparece em toda página, então cobre a home junto. */}
+              <div>
+                <p className="font-display text-sm font-semibold text-black mb-5 tracking-wide">{t.footer.legalTitle}</p>
+                <ul className="flex flex-col gap-3 text-neutral-500 text-[15px]">
+                  <li><Link href="/privacidade" className="hover:text-black transition-colors">{t.footer.privacy}</Link></li>
+                  <li><Link href="/termos" className="hover:text-black transition-colors">{t.footer.terms}</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
 

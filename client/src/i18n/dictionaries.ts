@@ -8,6 +8,7 @@ export const pt = {
     team: "Time",
     faq: "FAQ",
     cta: "Participar",
+    enter: "Entrar",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
   },
@@ -274,6 +275,26 @@ export const pt = {
       },
     ],
   },
+  plataforma: {
+    badge: "A plataforma",
+    title: "Onde a mentoria acontece",
+    intro: "Quem entra no programa acompanha o ciclo pela plataforma do Momento. O acesso é por convite da equipe.",
+    cards: [
+      {
+        title: "As seis sessões",
+        desc: "Quantas conversas do ciclo já aconteceram, quando foi cada uma e quanto falta para fechar o programa.",
+      },
+      {
+        title: "O que ficou combinado",
+        desc: "Cada conversa termina com pelo menos uma ação clara. O que foi acordado e o que segue pendente ficam visíveis para mentor e mentorada.",
+      },
+      {
+        title: "Agenda e Google Calendar",
+        desc: "Quem conecta a conta do Google recebe os encontros na própria agenda, com sala do Meet criada junto. O Momento pede o escopo calendar.events: cria e edita só os eventos que ele mesmo criou, e não lê o resto da sua agenda. Conectar é opcional, e desconectar é um clique.",
+      }
+    ],
+    cta: "Entrar na plataforma",
+  },
   footer: {
     ctaTitle1: "Pronto para elevar",
     ctaTitle2: "sua jornada?",
@@ -284,6 +305,9 @@ export const pt = {
     navTitle: "Navegação",
     manualMentee: "Manual do Mentorado",
     manualMentor: "Manual do Mentor",
+    legalTitle: "Legal",
+    privacy: "Privacidade",
+    terms: "Termos de uso",
     copyright: "© 2026 Momento. Todos os direitos reservados."
   },
   manual: {
@@ -410,6 +434,7 @@ export const en = {
     team: "Team",
     faq: "FAQ",
     cta: "Join Us",
+    enter: "Sign in",
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },
@@ -676,6 +701,26 @@ export const en = {
       },
     ],
   },
+  plataforma: {
+    badge: "The platform",
+    title: "Where mentorship happens",
+    intro: "Everyone in the program follows their cycle on the Momento platform. Access is by invitation from the team.",
+    cards: [
+      {
+        title: "The six sessions",
+        desc: "How many conversations in the cycle have happened, when each one was, and how much is left to close the program.",
+      },
+      {
+        title: "What was agreed",
+        desc: "Every conversation ends with at least one clear action. What was agreed and what is still open stay visible to mentor and mentee.",
+      },
+      {
+        title: "Calendar and Google Calendar",
+        desc: "Connect your Google account and the meetings land in your own calendar, with a Meet room created alongside. Momento requests the calendar.events scope: it creates and edits only the events it created itself, and does not read the rest of your calendar. Connecting is optional, and disconnecting is one click.",
+      }
+    ],
+    cta: "Sign in to the platform",
+  },
   footer: {
     ctaTitle1: "Ready to elevate",
     ctaTitle2: "your journey?",
@@ -686,6 +731,9 @@ export const en = {
     navTitle: "Navigation",
     manualMentee: "Mentee Guide",
     manualMentor: "Mentor Guide",
+    legalTitle: "Legal",
+    privacy: "Privacy",
+    terms: "Terms of use",
     copyright: "© 2026 Momento. All rights reserved."
   },
   manual: {
