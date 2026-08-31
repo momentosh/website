@@ -3,9 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   poweredByHeader: false,
-  turbopack: {
-    root: __dirname,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },
