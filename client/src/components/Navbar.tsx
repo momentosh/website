@@ -7,8 +7,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
-const PLATFORM_LOGIN_URL = "https://app.momento.sh/login";
-
 export default function Navbar() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,7 +75,7 @@ export default function Navbar() {
         className={`fixed inset-x-0 h-[72px] z-[1000] px-[5vw] flex items-center border-b border-transparent transition-all duration-300 top-0`}
       >
         {/* Desktop layout */}
-        <div className="hidden xl:grid grid-cols-[200px_1fr_auto] gap-4 items-center max-w-[1440px] mx-auto w-full">
+        <div className="hidden xl:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
           <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto" />
 
           <nav className="flex justify-center gap-12 text-base font-medium">
@@ -92,14 +90,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="justify-self-end flex items-center gap-4">
+          <div className="justify-self-end flex items-center gap-6">
             <LangToggle language={language} setLanguage={setLanguage} />
-            <a
-              href={PLATFORM_LOGIN_URL}
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full border border-momento-brand bg-momento-brand px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
-            >
-              {t.navbar.cta}
-            </a>
           </div>
         </div>
 
@@ -170,14 +162,6 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-
-                <a
-                  href={PLATFORM_LOGIN_URL}
-                  onClick={closeMenu}
-                  className="mt-6 inline-flex items-center justify-center rounded-full border border-momento-brand bg-momento-brand px-6 py-3.5 text-base font-medium text-white transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
-                >
-                  {t.navbar.cta}
-                </a>
 
                 <div className="flex justify-center pt-6 pb-4">
                   <LangToggle
