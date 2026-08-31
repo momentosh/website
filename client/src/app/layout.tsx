@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://momento.app.br";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://momento.sh";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
