@@ -38,11 +38,6 @@
   --duration-normal: 300ms;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -53,4 +48,3 @@ body {
   color: black;
   -webkit-font-smoothing: antialiased;
 }
-
