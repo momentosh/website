@@ -1,0 +1,67 @@
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  --logo-gap: clamp(2.5rem, 6vw, 6rem);
+  overflow: hidden;
+  padding-block: 1rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation-name: logo-marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--logo-gap);
+  padding-right: var(--logo-gap);
+}
+
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    mask-image: none;
+  }
+
+  .track {
+    width: 100%;
+    animation: none;
+    will-change: auto;
+  }
+
+  .group {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .group[aria-hidden="true"] {
+    display: none;
+  }
+}

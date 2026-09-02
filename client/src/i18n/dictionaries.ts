@@ -253,6 +253,9 @@ export const pt = {
       { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
       { name: "UFPE", logo: "/assets/ufpe.png", url: "https://www.ufpe.br" },
       { name: "UFBA", logo: "/assets/ufba.png", url: "https://ufba.br" },
+      { name: "USP", logo: "/assets/usp.svg", url: "https://www.usp.br" },
+      { name: "Unicamp", logo: "/assets/unicamp.svg", url: "https://www.unicamp.br" },
+      { name: "Unipê", logo: "/assets/unipe.svg", url: "https://www.unipe.edu.br" },
     ],
   },
   links: {
@@ -679,6 +682,9 @@ export const en = {
       { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
       { name: "UFPE", logo: "/assets/ufpe.png", url: "https://www.ufpe.br" },
       { name: "UFBA", logo: "/assets/ufba.png", url: "https://ufba.br" },
+      { name: "USP", logo: "/assets/usp.svg", url: "https://www.usp.br" },
+      { name: "Unicamp", logo: "/assets/unicamp.svg", url: "https://www.unicamp.br" },
+      { name: "Unipê", logo: "/assets/unipe.svg", url: "https://www.unipe.edu.br" },
     ],
   },
   links: {
