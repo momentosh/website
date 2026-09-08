@@ -94,7 +94,7 @@ export const pt = {
     members: [
       {
         name: "Itamar Rocha",
-        role: "Fundador",
+        role: "Fundador/Conselho",
         photo: "/assets/itamar.png",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/itamarrocha/" },
@@ -103,7 +103,7 @@ export const pt = {
       },
       {
         name: "Lara Pontes",
-        role: "Fundadora",
+        role: "Fundadora/Conselho",
         photo: "/assets/lara.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/laradicp/" },
@@ -112,7 +112,7 @@ export const pt = {
       },
       {
         name: "Marianne Monteiro",
-        role: "Fundadora",
+        role: "Fundadora/Conselho",
         photo: "/assets/marianne.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/mariannelinharesm/" },
@@ -121,11 +121,20 @@ export const pt = {
       },
       {
         name: "Luiz Fernando",
-        role: "Fundador",
+        role: "Fundador/Conselho",
         photo: "/assets/luiz.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/luiz-fernando632/" },
           { type: "github", url: "https://github.com/luiz826" },
+        ],
+      },
+      {
+        name: "Sofhia Souza",
+        role: "Membro do Conselho",
+        photo: "/assets/sofhiasouza.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/sofhiasouza/" },
+          { type: "github", url: "https://github.com/sofhiasouza" },
         ],
       },
       {
@@ -153,15 +162,6 @@ export const pt = {
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/maria-lu%C3%ADza-uchoa-cavalcanti-4a3812374/" },
           { type: "github", url: "https://github.com/malu-zinha" },
-        ],
-      },
-      {
-        name: "Pedro Kruta",
-        role: "Organizador",
-        photo: "/assets/pedrokruta.png",
-        socials: [
-          { type: "linkedin", url: "https://www.linkedin.com/in/pkruta/" },
-          { type: "github", url: "https://github.com/PKrutaa" },
         ],
       },
       {
@@ -523,7 +523,7 @@ export const en = {
     members: [
       {
         name: "Itamar Rocha",
-        role: "Founder",
+        role: "Founder/Board",
         photo: "/assets/itamar.png",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/itamarrocha/" },
@@ -532,7 +532,7 @@ export const en = {
       },
       {
         name: "Lara Pontes",
-        role: "Founder",
+        role: "Founder/Board",
         photo: "/assets/lara.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/laradicp/" },
@@ -541,7 +541,7 @@ export const en = {
       },
       {
         name: "Marianne Monteiro",
-        role: "Founder",
+        role: "Founder/Board",
         photo: "/assets/marianne.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/mariannelinharesm/" },
@@ -550,11 +550,20 @@ export const en = {
       },
       {
         name: "Luiz Fernando",
-        role: "Founder",
+        role: "Founder/Board",
         photo: "/assets/luiz.jpeg",
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/luiz-fernando632/" },
           { type: "github", url: "https://github.com/luiz826" },
+        ],
+      },
+      {
+        name: "Sofhia Souza",
+        role: "Board Member",
+        photo: "/assets/sofhiasouza.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/sofhiasouza/" },
+          { type: "github", url: "https://github.com/sofhiasouza" },
         ],
       },
       {
@@ -582,15 +591,6 @@ export const en = {
         socials: [
           { type: "linkedin", url: "https://www.linkedin.com/in/maria-lu%C3%ADza-uchoa-cavalcanti-4a3812374/" },
           { type: "github", url: "https://github.com/malu-zinha" },
-        ],
-      },
-      {
-        name: "Pedro Kruta",
-        role: "Organizer",
-        photo: "/assets/pedrokruta.png",
-        socials: [
-          { type: "linkedin", url: "https://www.linkedin.com/in/pkruta/" },
-          { type: "github", url: "https://github.com/PKrutaa" },
         ],
       },
       {
