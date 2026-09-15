@@ -212,7 +212,7 @@ export const pt = {
       },
       {
         q: "Quem pode participar?",
-        a: "Atualmente, estamos focando nossa atuação na região Nordeste, onde o movimento nasceu, mas já temos alunos de outras regiões como a UFG (Universidade Federal de Goiás). O Momento está aberto a estudantes de qualquer universidade do Brasil! Se sua instituição ainda não faz parte do movimento, você pode manifestar interesse. Estamos sempre expandindo nossa rede e adoraríamos levar o Momento para mais universidades.",
+        a: "O Momento é um projeto nacional que conecta e desenvolve estudantes universitários interessados em tecnologia, por meio de eventos, mentorias e iniciativas de comunidade.\n\nTemos duas modalidades de mentoria: o Momentinho, para estudantes do P0 ao P3, e o Momento, para quem está a partir do P4.\n\nEstudantes de qualquer universidade do Brasil podem participar. Se sua instituição ainda não faz parte da rede, manifeste interesse! Estamos sempre expandindo o Momento.",
       },
       {
         q: "O que é uma Mentoria?",
@@ -228,7 +228,7 @@ export const pt = {
       },
       {
         q: "Como participar?",
-        a: "Ficamos muito felizes em saber que você se interessou! Para participar basta estar alinhado a algum dos perfis que estamos buscando e por conta disso precisamos te conhecer um pouco mais...",
+        a: "Você pode participar do Momento de duas formas:\n\nMentorias: as inscrições geralmente são abertas no início de cada semestre, com duas rotações por ano. Acompanhe nossas mídias para não perder o próximo processo seletivo!\n\nEventos abertos: promovemos eventos e rodas de conversa para a comunidade de tecnologia. As novidades e inscrições são divulgadas em nosso Instagram.",
       },
       {
         q: "Como são feitas as turmas para cada Mentor?",
@@ -641,7 +641,7 @@ export const en = {
       },
       {
         q: "Who can participate?",
-        a: "Currently, we are focusing our efforts on the Northeast region of Brazil, where the movement was born, but we already have students from other regions like UFG (Federal University of Goiás). Momento is open to students from any university in Brazil! If your institution is not yet part of the movement, you can express interest. We are always expanding our network and would love to bring Momento to more universities.",
+        a: "Momento is a nationwide project that connects and develops university students interested in technology, through events, mentorships, and community initiatives.\n\nWe have two mentorship tracks: Momentinho, for students from P0 to P3, and Momento, for those from P4 onwards.\n\nStudents from any university in Brazil can take part. If your institution is not part of the network yet, express your interest! We are always expanding Momento.",
       },
       {
         q: "What is a Mentorship?",
@@ -657,7 +657,7 @@ export const en = {
       },
       {
         q: "How to participate?",
-        a: "We're very happy to know you're interested! To participate, you just need to fit one of the profiles we're looking for, and for that we need to get to know you a little better...",
+        a: "There are two ways to take part in Momento:\n\nMentorships: applications usually open at the beginning of each semester, with two rotations per year. Follow our channels so you don't miss the next selection process!\n\nOpen events: we host events and conversation circles for the technology community. News and sign-ups are announced on our Instagram.",
       },
       {
         q: "How are groups formed for each Mentor?",
