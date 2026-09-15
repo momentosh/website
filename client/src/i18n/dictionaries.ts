@@ -212,7 +212,7 @@ export const pt = {
       },
       {
         q: "Quem pode participar?",
-        a: "O Momento é um projeto nacional que conecta e desenvolve estudantes universitários interessados em tecnologia, por meio de eventos, mentorias e iniciativas de comunidade. Temos duas modalidades de mentoria: o Momentinho, para estudantes do P0 ao P3, e o Momento, para quem está a partir do P4. Estudantes de qualquer universidade do Brasil podem participar. Se sua instituição ainda não faz parte da rede, manifeste interesse! Estamos sempre expandindo o Momento.",
+        a: "O Momento é um projeto nacional que conecta e desenvolve estudantes universitários interessados em tecnologia, por meio de eventos, mentorias e iniciativas de comunidade. Temos duas modalidades de mentoria: o **Momentinho**, para estudantes do P0 ao P3, e o **Momento**, para quem está a partir do P4. Estudantes de qualquer universidade do Brasil podem participar. Se sua instituição ainda não faz parte da rede, manifeste interesse! Estamos sempre expandindo o Momento.",
       },
       {
         q: "O que é uma Mentoria?",
@@ -641,7 +641,7 @@ export const en = {
       },
       {
         q: "Who can participate?",
-        a: "Momento is a nationwide project that connects and develops university students interested in technology, through events, mentorships, and community initiatives. We have two mentorship tracks: Momentinho, for students from P0 to P3, and Momento, for those from P4 onwards. Students from any university in Brazil can take part. If your institution is not part of the network yet, express your interest! We are always expanding Momento.",
+        a: "Momento is a nationwide project that connects and develops university students interested in technology, through events, mentorships, and community initiatives. We have two mentorship tracks: **Momentinho**, for students from P0 to P3, and **Momento**, for those from P4 onwards. Students from any university in Brazil can take part. If your institution is not part of the network yet, express your interest! We are always expanding Momento.",
       },
       {
         q: "What is a Mentorship?",

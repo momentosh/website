@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Markdown from "react-markdown";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FAQ() {
@@ -68,9 +69,9 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="text-neutral-600 px-6 pb-6 leading-relaxed text-lg whitespace-pre-line">
-                        {item.a}
-                      </p>
+                      <div className="px-6 pb-6">
+                        <Markdown components={resposta}>{item.a}</Markdown>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -82,3 +83,18 @@ export default function FAQ() {
     </section>
   );
 }
+
+/**
+ * As respostas vêm do dicionário como markdown: o texto do FAQ é conteúdo que a
+ * equipe edita, e parágrafo e negrito resolvem tudo o que ele precisa sem passar
+ * por React. Só as duas tags que aparecem ganham estilo, na escala desta seção —
+ * `Texto` é o irmão deste mapa, mas serve documento, e a tipografia lá é outra.
+ */
+const resposta = {
+  p: (props: React.ComponentProps<"p">) => (
+    <p className="text-neutral-600 leading-relaxed text-lg mb-4 last:mb-0" {...props} />
+  ),
+  strong: (props: React.ComponentProps<"strong">) => (
+    <strong className="font-medium text-neutral-900" {...props} />
+  ),
+};
