@@ -95,15 +95,18 @@
   height: 100%;
   overflow: visible;
   pointer-events: none;
+  /* Anel inclinado em volta do globo, como no site do Trilha: achatado em
+     perspectiva, com a metade de trás apagada para parecer passar atrás dele. */
+  transform: rotate(-12deg) scaleY(0.48);
+  mask-image: linear-gradient(rgb(0 0 0 / 0.13) 0%, rgb(0 0 0 / 0.2) 40%, #000 60%);
 }
 
 .orbit text {
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
   fill: var(--color-momento-accent);
-  opacity: 0.55;
 }
 
 .orbitRotation {

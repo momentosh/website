@@ -312,6 +312,13 @@ function UniversityGlobe({
   return (
     <div className={styles.globeArea}>
       <div ref={stageRef} className={styles.stage}>
+        <div
+          ref={canvasHostRef}
+          className={styles.canvasHost}
+          role="img"
+          aria-label={t.universities.globeDescription}
+        />
+
         <svg className={styles.orbit} viewBox="0 0 500 500" aria-hidden="true">
           <defs>
             <path
@@ -327,13 +334,6 @@ function UniversityGlobe({
             </text>
           </g>
         </svg>
-
-        <div
-          ref={canvasHostRef}
-          className={styles.canvasHost}
-          role="img"
-          aria-label={t.universities.globeDescription}
-        />
 
         <div className={styles.pins} data-has-selection={Boolean(selected)}>
           {regions.map((region, index) => {
