@@ -261,6 +261,7 @@ export const pt = {
       go: "Goiás",
       mg: "Minas Gerais",
       sp: "São Paulo",
+      cal: "Califórnia",
       us: "Estados Unidos",
       ca: "Canadá",
       uk: "Inglaterra",
@@ -271,6 +272,7 @@ export const pt = {
       { name: "MIT", city: "cambridge", url: "https://www.mit.edu" },
       { name: "Harvard", city: "cambridge", url: "https://www.harvard.edu" },
       { name: "Universidade de Toronto", city: "toronto", url: "https://www.utoronto.ca" },
+      { name: "São Francisco", city: "san-francisco" },
       { name: "Londres", city: "london" },
     ] as { name: string; city: string; url?: string }[],
     items: [
@@ -717,6 +719,7 @@ export const en = {
       go: "Goiás",
       mg: "Minas Gerais",
       sp: "São Paulo",
+      cal: "California",
       us: "United States",
       ca: "Canada",
       uk: "England",
@@ -727,6 +730,7 @@ export const en = {
       { name: "MIT", city: "cambridge", url: "https://www.mit.edu" },
       { name: "Harvard", city: "cambridge", url: "https://www.harvard.edu" },
       { name: "University of Toronto", city: "toronto", url: "https://www.utoronto.ca" },
+      { name: "San Francisco", city: "san-francisco" },
       { name: "London", city: "london" },
     ] as { name: string; city: string; url?: string }[],
     items: [

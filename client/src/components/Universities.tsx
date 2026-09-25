@@ -20,6 +20,7 @@ const cities = {
   "belo-horizonte": [-19.92, -43.94],
   cambridge: [42.36, -71.09],
   toronto: [43.65, -79.38],
+  "san-francisco": [37.77, -122.42],
   london: [51.51, -0.13],
 } satisfies Record<string, LatLng>;
 
@@ -43,6 +44,7 @@ const regions: {
   { id: "go", country: "br", anchor: "goiania", cities: ["goiania"], offset: [-46, -26] },
   { id: "mg", country: "br", anchor: "belo-horizonte", cities: ["belo-horizonte"], offset: [56, 50] },
   { id: "sp", country: "br", anchor: "sao-paulo", cities: ["sao-paulo", "campinas"], offset: [-40, 34] },
+  { id: "cal", country: "us", anchor: "san-francisco", cities: ["san-francisco"], offset: [44, 20] },
   { id: "us", country: "us", anchor: "cambridge", cities: ["cambridge"], offset: [36, 26] },
   { id: "ca", country: "ca", anchor: "toronto", cities: ["toronto"], offset: [-30, -30] },
   { id: "uk", country: "uk", anchor: "london", cities: ["london"], offset: [30, -30] },
@@ -67,8 +69,9 @@ function focusOn([lat, lng]: LatLng): [number, number] {
   return [Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2), (lat * Math.PI) / 180];
 }
 
-// Um pouco ao norte do Brasil, para os mentores no exterior também aparecerem.
-const home = focusOn([-4, -45]);
+// Um pouco ao norte e a oeste do Brasil, para os mentores no exterior, da
+// Califórnia a Londres, também aparecerem.
+const home = focusOn([-4, -52]);
 
 // A lista de universidades cresce a partir do rótulo, para longe do ponto:
 // para cima quando o rótulo está acima dele, para baixo quando está abaixo.
