@@ -45,7 +45,7 @@ const regions: {
   { id: "mg", country: "br", anchor: "belo-horizonte", cities: ["belo-horizonte"], offset: [56, 50] },
   { id: "sp", country: "br", anchor: "sao-paulo", cities: ["sao-paulo", "campinas"], offset: [-40, 34] },
   { id: "cal", country: "us", anchor: "san-francisco", cities: ["san-francisco"], offset: [44, 20] },
-  { id: "us", country: "us", anchor: "cambridge", cities: ["cambridge"], offset: [36, 26] },
+  { id: "bos", country: "us", anchor: "cambridge", cities: ["cambridge"], offset: [36, 26] },
   { id: "ca", country: "ca", anchor: "toronto", cities: ["toronto"], offset: [-30, -30] },
   { id: "uk", country: "uk", anchor: "london", cities: ["london"], offset: [30, -30] },
 ];
