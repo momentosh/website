@@ -4,6 +4,7 @@ import Image from "next/image";
 import { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import createGlobe, { type Arc, type Globe } from "cobe";
 import { useLanguage } from "@/context/LanguageContext";
+import type { Dictionary } from "@/i18n/dictionaries";
 import styles from "./Universities.module.css";
 
 type LatLng = [number, number];
@@ -16,26 +17,38 @@ const cities = {
   goiania: [-16.68, -49.25],
   "sao-paulo": [-23.55, -46.63],
   campinas: [-22.9, -47.06],
+  "belo-horizonte": [-19.92, -43.94],
+  cambridge: [42.36, -71.09],
+  toronto: [43.65, -79.38],
+  london: [51.51, -0.13],
 } satisfies Record<string, LatLng>;
 
 type CityId = keyof typeof cities;
+type RegionId = keyof Dictionary["universities"]["regions"];
 
 // Cidades vizinhas ficam a poucos pixels umas das outras no globo, então os
 // rótulos clicáveis são por estado, cada um deslocado do ponto por uma linha
 // guia para que não se sobreponham.
+// Os nomes ficam no dicionário, porque os países mudam com o idioma.
 const regions: {
-  id: string;
-  name: string;
+  id: RegionId;
+  country: string;
   anchor: CityId;
   cities: CityId[];
   offset: [number, number];
 }[] = [
-  { id: "pb", name: "Paraíba", anchor: "joao-pessoa", cities: ["joao-pessoa", "campina-grande"], offset: [34, -38] },
-  { id: "pe", name: "Pernambuco", anchor: "recife", cities: ["recife"], offset: [78, 12] },
-  { id: "ba", name: "Bahia", anchor: "salvador", cities: ["salvador"], offset: [40, 30] },
-  { id: "go", name: "Goiás", anchor: "goiania", cities: ["goiania"], offset: [-46, -26] },
-  { id: "sp", name: "São Paulo", anchor: "sao-paulo", cities: ["sao-paulo", "campinas"], offset: [-40, 34] },
+  { id: "pb", country: "br", anchor: "joao-pessoa", cities: ["joao-pessoa", "campina-grande"], offset: [34, -38] },
+  { id: "pe", country: "br", anchor: "recife", cities: ["recife"], offset: [78, 12] },
+  { id: "ba", country: "br", anchor: "salvador", cities: ["salvador"], offset: [40, 30] },
+  { id: "go", country: "br", anchor: "goiania", cities: ["goiania"], offset: [-46, -26] },
+  { id: "mg", country: "br", anchor: "belo-horizonte", cities: ["belo-horizonte"], offset: [56, 50] },
+  { id: "sp", country: "br", anchor: "sao-paulo", cities: ["sao-paulo", "campinas"], offset: [-40, 34] },
+  { id: "us", country: "us", anchor: "cambridge", cities: ["cambridge"], offset: [36, 26] },
+  { id: "ca", country: "ca", anchor: "toronto", cities: ["toronto"], offset: [-30, -30] },
+  { id: "uk", country: "uk", anchor: "london", cities: ["london"], offset: [30, -30] },
 ];
+
+const countryCount = new Set(regions.map((region) => region.country)).size;
 
 const origin = cities["joao-pessoa"];
 
@@ -54,7 +67,8 @@ function focusOn([lat, lng]: LatLng): [number, number] {
   return [Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2), (lat * Math.PI) / 180];
 }
 
-const home = focusOn([-14, -43]);
+// Um pouco ao norte do Brasil, para os mentores no exterior também aparecerem.
+const home = focusOn([-4, -45]);
 
 // A lista de universidades cresce a partir do rótulo, para longe do ponto:
 // para cima quando o rótulo está acima dele, para baixo quando está abaixo.
@@ -102,13 +116,14 @@ function angleDelta(from: number, to: number) {
   return delta;
 }
 
-type University = { name: string; city: string; url: string };
+// Universidades de onde vêm os estudantes e lugares onde estão os mentores.
+type Place = { name: string; city: string; url?: string };
 
 function UniversityGlobe({
-  universities,
+  places,
   onUnavailable,
 }: {
-  universities: readonly University[];
+  places: readonly Place[];
   onUnavailable: () => void;
 }) {
   const { t } = useLanguage();
@@ -119,10 +134,8 @@ function UniversityGlobe({
   const [selected, setSelected] = useState<string | null>(null);
 
   const selectedRegion = regions.find((region) => region.id === selected);
-  const selectedUniversities = selectedRegion
-    ? universities.filter((university) =>
-        (selectedRegion.cities as string[]).includes(university.city),
-      )
+  const selectedPlaces = selectedRegion
+    ? places.filter((place) => (selectedRegion.cities as string[]).includes(place.city))
     : [];
 
   useEffect(() => {
@@ -373,18 +386,22 @@ function UniversityGlobe({
                     type="button"
                     className={styles.pinLabel}
                     aria-pressed={isSelected}
-                    aria-label={`${t.universities.regionAria} ${region.name}`}
+                    aria-label={`${t.universities.regionAria} ${t.universities.regions[region.id]}`}
                     onClick={() => setSelected(isSelected ? null : region.id)}
                   >
-                    {region.name}
+                    {t.universities.regions[region.id]}
                   </button>
                   {isSelected && (
                     <ul className={styles.pinList}>
-                      {selectedUniversities.map((university, order) => (
-                        <li key={university.name} style={{ "--i": order } as CSSProperties}>
-                          <a href={university.url} target="_blank" rel="noopener noreferrer">
-                            {university.name}
-                          </a>
+                      {selectedPlaces.map((place, order) => (
+                        <li key={place.name} style={{ "--i": order } as CSSProperties}>
+                          {place.url ? (
+                            <a href={place.url} target="_blank" rel="noopener noreferrer">
+                              {place.name}
+                            </a>
+                          ) : (
+                            <span>{place.name}</span>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -397,7 +414,6 @@ function UniversityGlobe({
 
         <span className={styles.hint}>{t.universities.hint}</span>
       </div>
-
     </div>
   );
 }
@@ -407,7 +423,7 @@ export default function Universities() {
   const [globeUnavailable, setGlobeUnavailable] = useState(false);
   const handleGlobeUnavailable = useCallback(() => setGlobeUnavailable(true), []);
   const universities = t.universities.items;
-  const regionCount = regions.length;
+  const places: Place[] = [...universities, ...t.universities.mentors];
 
   return (
     <section id="universidades" className="bg-white px-[5vw] py-20 md:py-28">
@@ -424,25 +440,29 @@ export default function Universities() {
               <dd>{universities.length}</dd>
             </div>
             <div>
-              <dt>{t.universities.regionsLabel}</dt>
-              <dd>{regionCount}</dd>
+              <dt>{t.universities.countriesLabel}</dt>
+              <dd>{countryCount}</dd>
             </div>
           </dl>
         </div>
 
         {globeUnavailable ? (
           <ul className={styles.fallback}>
-            {universities.map((university) => (
-              <li key={university.name}>
-                <a href={university.url} target="_blank" rel="noopener noreferrer">
-                  {university.name}
-                </a>
+            {places.map((place) => (
+              <li key={place.name}>
+                {place.url ? (
+                  <a href={place.url} target="_blank" rel="noopener noreferrer">
+                    {place.name}
+                  </a>
+                ) : (
+                  <span>{place.name}</span>
+                )}
               </li>
             ))}
           </ul>
         ) : (
           <UniversityGlobe
-            universities={universities}
+            places={places}
             onUnavailable={handleGlobeUnavailable}
           />
         )}
