@@ -1,67 +1,337 @@
-@keyframes logo-marquee {
-  from {
-    transform: translateX(0);
-  }
-
+@keyframes orbit-spin {
   to {
-    transform: translateX(-50%);
+    transform: rotate(360deg);
   }
 }
 
-.marquee {
-  --logo-gap: clamp(2.5rem, 6vw, 6rem);
-  overflow: hidden;
-  padding-block: 1rem;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
 }
 
-.track {
-  display: flex;
-  width: max-content;
-  animation-name: logo-marquee;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  will-change: transform;
-}
-
-.group {
-  display: flex;
-  flex-shrink: 0;
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   align-items: center;
-  gap: var(--logo-gap);
-  padding-right: var(--logo-gap);
+  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
-.marquee:hover .track,
-.marquee:focus-within .track {
-  animation-play-state: paused;
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading {
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: #000;
+}
+
+.description {
+  max-width: 440px;
+  font-size: 17px;
+  line-height: 1.625;
+  color: var(--color-neutral-800);
+}
+
+.stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-momento-light);
+}
+
+.stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.25rem;
+}
+
+.stats dd {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-momento-mid);
+}
+
+.stats dt {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-neutral-500);
+}
+
+/* Globo */
+
+.globeArea {
+  position: relative;
+  width: min(100%, 580px);
+  justify-self: center;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  /* Anel inclinado em volta do globo, como no site do Trilha: achatado em
+     perspectiva, com a metade de trás apagada para parecer passar atrás dele. */
+  transform: rotate(-12deg) scaleY(0.48);
+  mask-image: linear-gradient(rgb(0 0 0 / 0.13) 0%, rgb(0 0 0 / 0.2) 40%, #000 60%);
+}
+
+.orbit text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  fill: var(--color-momento-accent);
+}
+
+.orbitRotation {
+  transform-origin: 250px 250px;
+  animation: orbit-spin 80s linear infinite;
+}
+
+.canvasHost {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  /* Deixa a página rolar na vertical no toque; o giro horizontal fica com o globo. */
+  touch-action: pan-y;
+}
+
+.canvas[data-dragging="true"] {
+  cursor: grabbing;
+}
+
+.pins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  transition: opacity var(--duration-normal) ease;
+}
+
+.pin[data-visible="false"] {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-normal) ease,
+    visibility 0s linear var(--duration-normal);
+}
+
+.pinLeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-momento-accent);
+  transform-origin: 0 50%;
+  opacity: 0.7;
+}
+
+.pinHat {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  max-width: none;
+  filter: drop-shadow(0 2px 4px rgb(105 61 174 / 0.3));
+  pointer-events: none;
+  transition: scale var(--duration-normal) var(--ease-out-expo);
+}
+
+.pin[data-selected="true"] .pinHat {
+  scale: 1.5;
+}
+
+/* Rótulo do estado e, com ele aberto, a lista de universidades na mesma
+   coluna. O rótulo fica centrado no fim da linha guia; a lista cresce para
+   longe do ponto. */
+.pinGroup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  width: max-content;
+  translate: -50% -12px;
+}
+
+.pinGroup[data-grow="up"] {
+  flex-direction: column-reverse;
+  translate: -50% calc(-100% + 12px);
+}
+
+.pinLabel,
+.pinList a,
+.pinList span {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: var(--color-momento-mid);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  box-shadow: 0 2px 8px rgb(105 61 174 / 0.3);
+  pointer-events: auto;
+  transition:
+    background-color var(--duration-fast) ease,
+    scale var(--duration-fast) ease;
+}
+
+.pinLabel {
+  cursor: pointer;
+}
+
+.pinLabel:hover,
+.pinList a:hover,
+.pinList a:focus-visible {
+  background: var(--color-momento-deep);
+}
+
+.pinLabel:hover {
+  scale: 1.05;
+}
+
+.pinLabel:focus-visible,
+.pinList a:focus-visible {
+  outline: 2px solid var(--color-momento-brand);
+  outline-offset: 2px;
+}
+
+.pinLabel[aria-pressed="true"] {
+  background: var(--color-momento-deep);
+}
+
+.pinList {
+  display: flex;
+  flex-direction: inherit;
+  gap: inherit;
+}
+
+.pinList li {
+  animation: tag-in var(--duration-normal) var(--ease-out-expo) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+/* Com um estado aberto, os outros rótulos saem de cena para a lista não
+   disputar espaço com eles. */
+.pinGroup,
+.pinLeader {
+  transition:
+    opacity var(--duration-fast) ease,
+    visibility 0s linear;
+}
+
+.pins[data-has-selection="true"] .pin[data-selected="false"] .pinGroup,
+.pins[data-has-selection="true"] .pin[data-selected="false"] .pinLeader {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-fast) ease,
+    visibility 0s linear var(--duration-fast);
+}
+
+.hint {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  color: var(--color-neutral-400);
+  pointer-events: none;
+}
+
+.fallback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.fallback a,
+.fallback span {
+  display: block;
+  padding: 10px 18px;
+  border: 1px solid var(--color-momento-light);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--color-momento-deep);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .globeArea {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 480px) {
+  .pinLabel,
+  .pinList a,
+  .pinList span {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee {
-    mask-image: none;
-  }
-
-  .track {
-    width: 100%;
+  .orbitRotation,
+  .pinList li {
     animation: none;
-    will-change: auto;
   }
 
-  .group {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-right: 0;
-  }
-
-  .group[aria-hidden="true"] {
-    display: none;
+  .pinHat {
+    transition: none;
   }
 }
