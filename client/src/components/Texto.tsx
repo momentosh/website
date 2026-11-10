@@ -66,17 +66,37 @@ const estilos = {
     />
   ),
   /**
-   * `target="_blank"` em tudo: o único link que estes documentos trazem é para
-   * fora (a Política de Dados do Usuário do Google, que o revisor procura), e
-   * tirar a pessoa da política no meio da leitura não ajuda ninguém.
+   * `target="_blank"` só para fora: os documentos legais apontam para a
+   * Política de Dados do Usuário do Google, que o revisor procura, e tirar a
+   * pessoa da política no meio da leitura não ajuda ninguém. Já um link para
+   * outra página do próprio site (o blog usa) deve navegar aqui mesmo.
    */
-  a: (props: React.ComponentProps<"a">) => (
-    <a
-      className="text-momento-brand underline underline-offset-4 hover:text-momento-accent transition-colors"
-      target="_blank"
-      rel="noopener noreferrer"
+  a: ({ href, ...props }: React.ComponentProps<"a">) => {
+    const externo = href?.startsWith("http");
+
+    return (
+      <a
+        className="text-momento-brand underline underline-offset-4 hover:text-momento-accent transition-colors"
+        href={href}
+        target={externo ? "_blank" : undefined}
+        rel={externo ? "noopener noreferrer" : undefined}
+        {...props}
+      />
+    );
+  },
+  /**
+   * Citação é coisa de post, não de documento legal — mas o estilo mora aqui
+   * para o blog não precisar de um segundo renderizador de markdown.
+   */
+  blockquote: (props: React.ComponentProps<"blockquote">) => (
+    <blockquote
+      className="border-l-2 border-momento-accent pl-5 my-6 text-[19px] leading-relaxed text-momento-dark italic"
       {...props}
     />
+  ),
+  img: ({ alt, ...props }: React.ComponentProps<"img">) => (
+    // eslint-disable-next-line @next/next/no-img-element -- markdown não passa pelo next/image
+    <img className="rounded-2xl border border-black/[0.08] my-8 w-full h-auto" alt={alt ?? ""} {...props} />
   ),
   hr: () => <hr className="my-10 border-black/10" />,
 };

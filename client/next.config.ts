@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/privacidade": ["./content/**"],
     "/termos": ["./content/**"],
+    // O blog lê content/blog/*.md do mesmo jeito — `readdir` + `path.join`, que
+    // o tracing não enxerga. As duas chaves cobrem a listagem e os posts; o
+    // curinga do slug evita ter de escapar os colchetes da rota dinâmica.
+    "/blog": ["./content/blog/**"],
+    "/blog/*": ["./content/blog/**"],
   },
 
   /*

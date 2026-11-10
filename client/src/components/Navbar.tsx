@@ -47,6 +47,9 @@ export default function Navbar() {
     { href: `${homePrefix}#depoimentos`, label: t.navbar.testimonials },
     { href: `${homePrefix}#time`, label: t.navbar.team },
     { href: `${homePrefix}#servicos`, label: t.navbar.services },
+    // O blog é a única página de conteúdo do site; as demais entradas são
+    // âncoras da home. Fica antes do FAQ para o FAQ continuar fechando a lista.
+    { href: "/blog", label: t.navbar.blog },
     { href: `${homePrefix}#faq`, label: t.navbar.faq },
   ];
   const mobileManualLinks = [
