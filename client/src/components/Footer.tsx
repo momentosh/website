@@ -45,6 +45,7 @@ export default function Footer() {
                   <li><Link href={`${homePrefix}#sobre`} className="hover:text-black transition-colors">{t.navbar.about}</Link></li>
                   <li><Link href={`${homePrefix}#depoimentos`} className="hover:text-black transition-colors">{t.navbar.testimonials}</Link></li>
                   <li><Link href={`${homePrefix}#servicos`} className="hover:text-black transition-colors">{t.navbar.services}</Link></li>
+                  <li><Link href="/blog" className="hover:text-black transition-colors">{t.navbar.blog}</Link></li>
                   <li><Link href={`${homePrefix}#faq`} className="hover:text-black transition-colors">{t.navbar.faq}</Link></li>
                   <li><Link href="/manual-mentoria" className="hover:text-black transition-colors">{t.footer.manualMentee}</Link></li>
                   <li><Link href="/manual-mentor" className="hover:text-black transition-colors">{t.footer.manualMentor}</Link></li>

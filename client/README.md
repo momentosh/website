@@ -17,6 +17,12 @@ npm run dev
 
 Abrir http://localhost:3000.
 
+## Blog
+
+Os posts ficam em `content/blog/*.md` (um arquivo por post, sem CMS). O formato do
+frontmatter e as convenções estão em `content/blog/_LEIA-ME.md`. A listagem é `/blog` e
+cada post vive em `/blog/<slug>`; ambos são gerados no build.
+
 ## Build de produção
 
 ```bash
