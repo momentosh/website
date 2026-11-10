@@ -98,5 +98,16 @@ const estilos = {
     // eslint-disable-next-line @next/next/no-img-element -- markdown não passa pelo next/image
     <img className="rounded-2xl border border-black/[0.08] my-8 w-full h-auto" alt={alt ?? ""} {...props} />
   ),
+  /**
+   * Bloco de código: o blog usa para a fórmula do modelo. O fundo fica no `pre`
+   * e o `code` de dentro perde o dele — sem isso o bloco vira uma caixa dentro
+   * de outra caixa.
+   */
+  pre: (props: React.ComponentProps<"pre">) => (
+    <pre
+      className="my-6 overflow-x-auto rounded-xl border border-black/[0.08] bg-momento-light/30 p-5 text-[14px] leading-relaxed text-momento-dark [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-momento-dark"
+      {...props}
+    />
+  ),
   hr: () => <hr className="my-10 border-black/10" />,
 };
